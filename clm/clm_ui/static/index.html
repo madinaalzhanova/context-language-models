@@ -104,6 +104,12 @@
           <select name="task" id="task-select"></select>
         </label>
         <p class="hint" id="task-hint"></p>
+        <label>Method skill
+          <select name="skill">
+            <option value="clm">clm: the paper's CLM skill (offload script given)</option>
+            <option value="none">none: task text only, the model finds its own way</option>
+          </select>
+        </label>
       </div>
       <div class="grid2 chat-only">
         <label>Context budget (tokens) <input name="context_budget_tokens" type="number" min="0"></label>

@@ -55,7 +55,9 @@ harbor trials start -p cb_tasks/<task> -e daytona -a clm_contextbench:ClmStream 
 - The sandbox is Harbor's environment for the task: its image, its `/app` workdir, its
   resources, and its `environment/` directory (the op stream) uploaded into `/app`.
 - The agent is `ClmStream` itself, with the paper's settings (`PAPER_KWARGS`) and the
-  family's method skill. It reads the stream, checks the op count and sha against
+  family's method skill (**Method skill** `clm`), or no skill at all (`none`: the
+  model gets the task text and CLM's system prompt, and has to find its own way to
+  stay under the budget). It reads the stream, checks the op count and sha against
   `task.toml`, removes it from the sandbox, and delivers the ops one at a time; the
   agent asks for each next op with `echo READY_FOR_NEXT_OP`.
 - When the run ends, ContextBench's grader (`contextbench.harbor.reward`, what the

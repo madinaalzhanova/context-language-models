@@ -95,7 +95,11 @@ class ConfigTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             SessionConfig.from_dict({"mode": "task"})  # no task chosen
         kw = SessionConfig.from_dict({"mode": "task", "task": "t"}).kwargs()
-        self.assertEqual(kw, {"send_chat_template_kwargs": False})
+        self.assertEqual(kw, {"send_chat_template_kwargs": False, "skill": "clm"})
+        kw = SessionConfig.from_dict({"mode": "task", "task": "t", "skill": "none"}).kwargs()
+        self.assertEqual(kw["skill"], "none")
+        with self.assertRaises(ValueError):
+            SessionConfig.from_dict({"mode": "task", "task": "t", "skill": "acm"})
 
 
 @unittest.skipUnless(shutil.which("bash"), "needs bash")

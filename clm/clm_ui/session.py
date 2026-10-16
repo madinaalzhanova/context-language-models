@@ -50,6 +50,7 @@ class SessionConfig:
     mode: str = "chat"                 # chat | task
     model: str = "qwen/qwen3.5-9b"     # OpenRouter model id
     task: str | None = None            # task mode: a task directory under the tasks dir
+    skill: str = "clm"                 # task mode: clm (the paper's method skill) | none
     # Chat only; a task runs with the paper's settings (clm_contextbench.PAPER_KWARGS).
     context_budget_tokens: int = 32000
     allow_edit_growth: str = "fit"     # fit | shrink
@@ -67,6 +68,8 @@ class SessionConfig:
             raise ValueError("choose an OpenRouter model")
         if cfg.mode == "task" and not cfg.task:
             raise ValueError("choose a ContextBench task")
+        if cfg.skill not in ("clm", "none"):
+            raise ValueError(f"skill must be clm or none, got {cfg.skill!r}")
         cfg.context_budget_tokens = int(cfg.context_budget_tokens)
         cfg.max_tokens = int(cfg.max_tokens) if cfg.max_tokens not in ("", None) else None
         cfg.temperature = float(cfg.temperature) if cfg.temperature not in ("", None) else None
@@ -76,7 +79,8 @@ class SessionConfig:
         """Agent kwargs. OpenRouter takes no chat_template_kwargs, as for
         ``--agent-kwarg send_chat_template_kwargs=false`` on the Harbor command line."""
         if self.mode == "task":
-            return {"send_chat_template_kwargs": False}  # ClmStream adds PAPER_KWARGS
+            # ClmStream adds PAPER_KWARGS; skill=none leaves the method skill out.
+            return {"send_chat_template_kwargs": False, "skill": self.skill}
         # ClmAgent's defaults, except: no step or LM-call limit (the user ends the
         # conversation), no final-turn notices, and the task text as is.
         kw: dict[str, Any] = {
