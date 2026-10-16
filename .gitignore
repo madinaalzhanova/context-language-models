@@ -7,3 +7,6 @@ clm_icl_runs/
 results/
 .env
 tools/
+# clm-ui runs (only the top-level tests/, not clm/tests/)
+/tests/
+clm_ui_me_runs/

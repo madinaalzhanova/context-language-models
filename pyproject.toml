@@ -14,10 +14,13 @@ dependencies = [
 
 [project.scripts]
 clm-harbor = "clm_harness.cli:main"
+clm-ui = "clm_ui.server:main"
 
 [project.optional-dependencies]
 # Exact-tokenizer FLOPs accounting for open models (falls back to tiktoken without it).
 hf = ["transformers>=4.40"]
+# The CLM Inspector web page (clm-ui).
+ui = ["fastapi>=0.110", "uvicorn>=0.29"]
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -25,10 +28,11 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["clm"]
-include = ["clm_harness*", "clm_icl*", "clm_contextbench*"]
+include = ["clm_harness*", "clm_icl*", "clm_contextbench*", "clm_ui*"]
 
 [tool.setuptools.package-data]
 "clm_harness" = ["configs/*.yaml"]
 "clm_harness.clm_agent" = ["*.yaml"]
 "clm_harness.task_templates" = ["*.yaml"]
 "clm_icl" = ["*.md"]
+"clm_ui" = ["static/*"]

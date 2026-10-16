@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLM Inspector</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">CLM Inspector</div>
+    <div class="session-info" id="session-info">no session</div>
+    <div class="status" id="status" data-state="idle">idle</div>
+    <div class="actions">
+      <button id="btn-stop" class="ghost" disabled>Stop</button>
+      <button id="btn-new">New session</button>
+    </div>
+  </header>
+  <div class="banner" id="banner" hidden></div>
+
+  <main class="columns">
+    <!-- 1. Chat -->
+    <section class="col col-chat">
+      <div class="col-head">
+        <h2>Chat</h2>
+        <span class="hint" id="chat-hint">what the user sees</span>
+      </div>
+      <div class="chat-log" id="chat-log"></div>
+      <div class="working" id="working" hidden></div>
+      <form class="composer" id="composer">
+        <textarea id="input" rows="3" placeholder="Start a session first" disabled></textarea>
+        <div class="composer-row">
+          <span class="hint">Ctrl+Enter to send</span>
+          <button type="submit" id="btn-send" disabled>Send</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 2. Inside CLM -->
+    <section class="col col-inside">
+      <div class="col-head">
+        <h2>Inside CLM</h2>
+        <span class="hint">harness and model, turn by turn</span>
+        <label class="toggle"><input type="checkbox" id="follow" checked> follow</label>
+        <label class="toggle"><input type="checkbox" id="ctx-only"> context activity only</label>
+      </div>
+      <div class="gauge-panel">
+        <div class="gauge-row">
+          <div class="gauge-label">Context</div>
+          <div class="gauge" id="gauge"><div class="gauge-fill" id="gauge-fill"></div></div>
+          <div class="gauge-num" id="gauge-num">–</div>
+        </div>
+        <div class="ctxmap-wrap">
+          <div class="ctxmap" id="ctxmap"></div>
+          <div class="ctxmap-legend">
+            <span><i class="sw sw-pinned"></i>pinned (not in file)</span>
+            <span><i class="sw sw-user"></i>user</span>
+            <span><i class="sw sw-assistant"></i>assistant</span>
+            <span><i class="sw sw-tool"></i>tool</span>
+          </div>
+        </div>
+        <div class="counters" id="counters"></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- 3. File system -->
+    <section class="col col-fs">
+      <div class="col-head">
+        <h2>File system</h2>
+        <span class="hint">sandbox and agent logs</span>
+      </div>
+      <div class="tree" id="tree"></div>
+      <div class="viewer">
+        <div class="viewer-head">
+          <div class="viewer-path" id="viewer-path">select a file</div>
+          <span class="live" id="viewer-live" hidden>live</span>
+          <label class="toggle"><input type="checkbox" id="show-diff" checked> changes</label>
+          <button class="ghost small" id="btn-refresh" title="Reload file">Reload</button>
+        </div>
+        <div class="viewer-sub" id="viewer-sub"></div>
+        <div class="viewer-body" id="viewer-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlg">
+    <form method="dialog" id="cfg-form">
+      <h3>New session</h3>
+      <label>Mode
+        <select name="mode">
+          <option value="chat">Chat: talk to CLM</option>
+          <option value="task">ContextBench task: run and grade one task</option>
+        </select>
+      </label>
+      <p class="hint" id="mode-hint"></p>
+      <label>OpenRouter model
+        <input name="model" list="model-list" placeholder="qwen/qwen3.5-9b" autocomplete="off" required>
+        <datalist id="model-list"></datalist>
+      </label>
+      <p class="hint" id="model-hint"></p>
+      <div class="task-only">
+        <label>Task
+          <select name="task" id="task-select"></select>
+        </label>
+        <p class="hint" id="task-hint"></p>
+      </div>
+      <div class="grid2 chat-only">
+        <label>Context budget (tokens) <input name="context_budget_tokens" type="number" min="0"></label>
+        <label>Edit gate
+          <select name="allow_edit_growth">
+            <option value="fit">fit: edit must fit the limit</option>
+            <option value="shrink">shrink: edit must shrink context</option>
+          </select>
+        </label>
+        <label>Max output tokens <input name="max_tokens" type="number" min="1" placeholder="default 16384"></label>
+        <label>Temperature <input name="temperature" placeholder="0.7, or empty to omit"></label>
+      </div>
+      <label>Sandbox <input id="sandbox-kind" disabled></label>
+      <p class="hint">OPENROUTER_API_KEY and the sandbox credentials come from the server's environment, never from this page.</p>
+      <div class="dlg-actions">
+        <button value="cancel" class="ghost" formnovalidate>Cancel</button>
+        <button value="ok" id="btn-start">Start</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
