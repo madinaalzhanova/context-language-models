@@ -481,7 +481,7 @@ function renderTree() {
       h("span", { class: "about", text: r.about })));
     const base = r.path.split("/").length;
     if (!r.entries.length) box.append(h("div", { class: "node dir" }, h("span", { class: "nm",
-      text: r.path === S.session?.paths?.ctx_dir ? "(empty: written before the first command)" : "(empty)" })));
+      text: r.empty ? `(empty: ${r.empty})` : "(empty)" })));
     for (const e of r.entries) {
       const parts = e.path.split("/");
       const depth = parts.length - base - 1;

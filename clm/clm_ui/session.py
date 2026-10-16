@@ -224,7 +224,7 @@ class Session:
                 task += " " + protocol.NO_WEB_NOTE
         self.run_task = asyncio.create_task(self._run(task))
 
-    async def send(self, text: str) -> None:
+    async def send(self, text: str) -> None:    # user message in chat vs task by bench
         text = text.strip()
         if not text:
             return
@@ -237,7 +237,7 @@ class Session:
         else:
             self.agent.inbox.put_nowait(text)
 
-    async def _run(self, instruction: str) -> None:
+    async def _run(self, instruction: str) -> None: # run agent in background
         cfg, sb = self.cfg, self.sandbox
         reason = "ended"
         try:
@@ -262,8 +262,8 @@ class Session:
             self.emit("error", message=f"{type(exc).__name__}: {exc}",
                       traceback=traceback.format_exc())
         finally:
-            usage = _read_json(self.logs_dir / "usage.json")
-            stream = _read_json(self.logs_dir / "interactive_stream.json")
+            usage = _read_json(self.logs_dir / "usage.json")    
+            stream = _read_json(self.logs_dir / "interactive_stream.json")  # 
             terminated_by = (stream or {}).get("terminated_by")
             self.emit("finished", reason=reason, usage=usage, terminated_by=terminated_by)
             if self.task is not None and reason in ("completed", "error"):

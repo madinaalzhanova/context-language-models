@@ -33,6 +33,9 @@ MAX_TREE_ENTRIES = 400
 MAX_TREE_DEPTH = 5
 #: Bytes of a file the viewer fetches.
 MAX_READ_BYTES = 2_000_000
+#: The folder ContextBench's CLM method skills (clm_exp/skills/clm/kv_store.md,
+#: log_triage.md) tell the agent to offload context into. Nothing creates it but the agent.
+OFFLOAD_DIR = "/tmp/ctx_offload"
 #: find -printf fields after the root: type, size, mtime, path (find expands the escapes).
 _FIND_FORMAT = r"\t%y\t%s\t%T@\t%p\n"
 
@@ -114,9 +117,13 @@ class Sandbox:
         """The directories the file-system column shows, with what each one is for."""
         return [
             {"path": self.ctx_dir, "label": "context mirror",
-             "about": "The model's editable context, rewritten before every command."},
-            {"path": self.state_dir, "label": "persistent shell",
-             "about": "cwd and exported env, restored before each command."},
+             "about": "The model's editable context, rewritten before every command.",
+             "empty": "written before the first command"},
+            {"path": OFFLOAD_DIR, "label": "offloaded context",
+             "about": "Where the CLM method skill tells the agent to move text it cuts from "
+                      "its context (kv_store: SET batches; log_triage: log-NNNN.log), to "
+                      "grep later. Graders read the context, never this folder.",
+             "empty": "created by the agent the first time it offloads"},
             {"path": self.workspace, "label": "workspace",
              "about": "The shell's starting directory, where task files go."},
         ]

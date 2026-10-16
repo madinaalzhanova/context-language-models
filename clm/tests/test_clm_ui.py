@@ -9,7 +9,7 @@
 The session tests run the real loops (``ClmAgent``; ``ClmStream`` with ContextBench's
 stream loading, delivery and grader). Two things are replaced, so no API key, Daytona or
 Docker is needed: the OpenRouter call, by scripted replies, and the sandbox, by
-clm_ui_me's LocalSandbox (bash on this machine; the scripted commands are harmless).
+local_sandbox.LocalSandbox (bash on this machine; the scripted commands are harmless).
 They need harbor, litellm, contextbench and bash, and the task test a ContextBench
 checkout with cb_tasks.
 
@@ -27,7 +27,7 @@ import uuid
 from pathlib import Path
 from unittest import mock
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "clm_ui_me"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # local_sandbox.py, next to this file
 
 try:
     import litellm
@@ -126,7 +126,7 @@ class ShellListingTest(unittest.TestCase):
 
 @contextlib.contextmanager
 def local_sandboxes():
-    """Sessions built here run in clm_ui_me's LocalSandbox instead of Daytona or Docker."""
+    """Sessions built here run in a LocalSandbox instead of Daytona or Docker."""
 
     def make(kind, session_dir, *, task=None, name=None):
         return LocalSandbox(session_dir / "sandbox", task=task)
@@ -171,7 +171,7 @@ class ChatSessionTest(unittest.TestCase):
         self.assertFalse(any(t["preview"].startswith("(No tool call") for t in sent))
         fs = [e for e in events if e["type"] == "fs"][-1]
         names = {x["path"].rsplit("/", 1)[-1] for r in fs["roots"] for x in r["entries"]}
-        self.assertTrue({"LIVE_CTX_MAIN.txt", "answer.txt", "cwd"} <= names)
+        self.assertTrue({"LIVE_CTX_MAIN.txt", "answer.txt"} <= names)
 
     async def _run(self, tmp: Path) -> list[dict]:
         s = Session(SessionConfig(model="scripted/model"), runs_dir=tmp,

@@ -8,7 +8,7 @@ on OpenRouter models and shows three columns:
 |---|---|
 | **Chat** | your messages and the agent's answers; for a ContextBench task, the instruction, each op as the stream delivers it, each op done, and the grade |
 | **Inside CLM** | each turn of the loop: the budget check and any nudge or rollback, the context map, the model's reasoning and THOUGHT, the bash call, its output, the edit gate's verdict on a context edit (tokens before → after, the lines changed), and the tool result the model sees next |
-| **File system** | the sandbox (context mirror, persistent-shell state, workdir) and the agent's logs, with a viewer that follows the context file live and marks what the model and the harness changed |
+| **File system** | the sandbox (context mirror, offloaded context in `/tmp/ctx_offload`, workdir) and the agent's logs, with a viewer that follows the context file live and marks what the model and the harness changed |
 
 ## Run
 
@@ -132,4 +132,4 @@ rejected edit being restored.
 Tests: `PYTHONPATH=clm python -m unittest clm.tests.test_clm_ui -v`. They run the chat
 loop and a ContextBench task end to end without Daytona or Docker: the OpenRouter call is
 replaced by scripted replies, and the sandbox by the local one in
-[`clm_ui_me/local_sandbox.py`](../clm_ui_me/local_sandbox.py).
+[`clm/tests/local_sandbox.py`](../tests/local_sandbox.py).

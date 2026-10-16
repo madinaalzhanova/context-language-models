@@ -83,6 +83,7 @@ _SKILL_ANCHORS = {
     "log_triage": ("\nThe run ends automatically", "\n", "\n\n"),
     "needle_retention": ("\nThe run ends automatically", "\n", "\n\n"),
     "sudoku_sketchpad": ("\n## Turn protocol (IMPORTANT)", "", "\n\n\n"),
+    "niah_pressure": ("\nThe run ends automatically", "\n", "\n\n"),
 }
 
 _FAMILY_TITLES = {
@@ -90,6 +91,7 @@ _FAMILY_TITLES = {
     "# Incident Log Triage": "log_triage",
     "# Needle": "needle_retention",
     "# Sudoku": "sudoku_sketchpad",
+    "# NIAH Pressure": "niah_pressure",
 }
 
 
@@ -112,13 +114,13 @@ def load_skill(family: str, skill: str = "clm", skills_dir: str | Path | None = 
 
     ``skill`` is a method directory under ``skills_dir`` (default: ContextBench's
     ``clm_exp/skills``) or an absolute path to one. ``"clm"`` is the paper's CLM text
-    and must match ``PAPER_SKILL_SHA16``.
+    and must match ``PAPER_SKILL_SHA16`` (for the families the paper ran).
     """
     path = Path(skill) if Path(skill).is_absolute() else \
         Path(skills_dir or _default_skills_dir()) / skill
     path = path / f"{family}.md"
     text = path.read_text(encoding="utf-8")
-    if skill == "clm":
+    if skill == "clm" and family in PAPER_SKILL_SHA16:
         got = hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
         if got != PAPER_SKILL_SHA16[family]:
             raise ValueError(f"{path} has sha16 {got}, expected {PAPER_SKILL_SHA16[family]}")
