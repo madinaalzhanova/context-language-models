@@ -36,12 +36,12 @@ const splitLines = (s) => {
 let S;
 function fresh() {
   return {
-    session: null, mode: "chat", pricing: null,
+    session: null, mode: "chat",
     turn: 0, card: null, lastCall: 0,
     ctx: { path: null, text: "", diff: null, by: null, live: false, summary: "", written: false },
     ctxPreview: null,
     prefix: null, ctxTurns: [], protect: 2, budget: null,
-    counters: { calls: 0, cmds: 0, applied: 0, rejected: 0, nomatch: 0, free: 0, nudges: 0, rollbacks: 0, cost: 0 },
+    counters: { calls: 0, cmds: 0, applied: 0, nudges: 0 },
     roots: [], mtimes: new Map(), selected: null, lastCmd: "",
   };
 }
@@ -63,7 +63,6 @@ const H = {
   session(ev) {
     S.session = ev; S.mode = ev.config.mode; S.ctx.path = ev.ctx_file;
     const c = ev.config;
-    S.pricing = ev.model_info?.pricing || null;
     $("session-info").textContent = (c.mode === "task"
       ? `ContextBench task ${ev.task} · ${ev.model} · paper settings`
       : `chat · ${ev.model} · budget ${fmt(c.context_budget_tokens)} · gate ${c.allow_edit_growth}`) +
@@ -135,7 +134,6 @@ const H = {
   },
 
   rollback(ev) {
-    S.counters.rollbacks += 1;
     const c = S.card || newCard("Rollback");
     c.body.append(h("div", { class: "notice bad" }, h("b", { text: "Rollback. " }),
       `Context crossed the limit; the harness dropped the newest ${ev.dropped} turn(s) to ${fmt(ev.tokens_after)} tokens ` +
@@ -164,11 +162,6 @@ const H = {
   },
 
   llm_response(ev) {
-    if (S.pricing) {
-      S.counters.cost += (ev.prompt_tokens || 0) * Number(S.pricing.prompt || 0) +
-        (ev.completion_tokens || 0) * Number(S.pricing.completion || 0);
-      counters();
-    }
     const c = S.card || newCard(`Turn ${++S.turn}`);
     c.head.append(h("span", { class: "pill info", text: `LM call #${ev.call} · ${ev.latency_s}s` }));
     if (ev.reasoning) {
@@ -230,9 +223,6 @@ const H = {
         no_match: ["", "no change: edit matched nothing"],
       }[ev.status] || ["", ev.status];
       if (ev.status === "applied" || ev.status === "applied_over" || ev.status === "grew") S.counters.applied += 1;
-      if (ev.status === "rejected") S.counters.rejected += 1;
-      if (ev.status === "no_match") S.counters.nomatch += 1;
-      if (free) S.counters.free += 1;
       if (c) {
         if (c.ctxBadge) c.ctxBadge.replaceWith(h("span", { class: "pill info", text: "edits the context file" }));
         const sec = h("div", { class: "sec ctx-sec" },
@@ -375,10 +365,14 @@ function newCard(title) {
   return S.card;
 }
 
+// Scrolled to (near) the end: new content keeps it there. Scrolled up to read: left alone.
+const atBottom = (el) => el.scrollHeight - el.scrollTop - el.clientHeight < 40;
+
 function timeline(el) {
   const tl = $("timeline");
+  const stick = atBottom(tl);
   tl.append(el);
-  if ($("follow").checked) requestAnimationFrame(() => (tl.scrollTop = tl.scrollHeight));
+  if (stick) requestAnimationFrame(() => (tl.scrollTop = tl.scrollHeight));
 }
 
 function miniDiff(diff) {
@@ -463,11 +457,7 @@ function counters() {
   const item = (label, v, title) => h("span", { title }, `${label} `, h("b", { text: fmt(v) }));
   $("counters").replaceChildren(...[
     item("LM calls", c.calls), item("commands", c.cmds),
-    item("edits applied", c.applied), item("rejected", c.rejected), item("no-match", c.nomatch),
-    item("free turns", c.free, "Edits that printed nothing and used no task step"),
-    item("nudges", c.nudges), item("rollbacks", c.rollbacks),
-    S.pricing ? h("span", { title: "From OpenRouter's list prices and the reported token counts" },
-      "cost ", h("b", { text: `$${c.cost.toFixed(4)}` })) : null].filter(Boolean));
+    item("edits applied", c.applied), item("nudges", c.nudges)]);
 }
 
 // ------------------------------------------------------------------ file tree
@@ -558,6 +548,7 @@ function renderViewer(scroll) {
 
 function drawViewer(scroll) {
   const body = $("viewer-body"), ctx = S.ctx;
+  const wasAtBottom = atBottom(body);
   $("viewer-live").hidden = !ctx.live;
   // Context sub-header: what this file is and what is not in it.
   const editable = S.ctxTurns.filter((t) => !t.pinned);
@@ -595,7 +586,7 @@ function drawViewer(scroll) {
 
   const lines = splitLines(text);
   const rows = [];
-  const showDiff = !preview && $("show-diff").checked && ctx.diff;
+  const showDiff = !preview && ctx.diff;
   const push = (t, cls) => {
     const m = HEADER_RE.exec(t);
     const row = h("div", { class: `ln ${cls}${m ? " hdr r-" + m[2] : ""}`, text: t });
@@ -618,7 +609,7 @@ function drawViewer(scroll) {
   if (!rows.length) rows.push(h("div", { class: "ln", text: "(empty: no editable turns yet)" }));
   body.replaceChildren(...rows);
   if (scroll === "change" && firstChange != null) rows[firstChange].scrollIntoView({ block: "center" });
-  else if (scroll === "end" && $("follow").checked) body.scrollTop = body.scrollHeight;
+  else if (scroll === "end" && wasAtBottom) body.scrollTop = body.scrollHeight;
 }
 
 function prefixText(which) {
@@ -633,8 +624,6 @@ function openPrefix(which) {
   renderViewer();
 }
 
-$("show-diff").addEventListener("change", () => isCtxSelected() && renderViewer());
-$("btn-refresh").addEventListener("click", () => (isCtxSelected() ? renderViewer() : loadFile()));
 
 // ------------------------------------------------------------------ dialog
 const LS_KEY = "clm-ui-config";
