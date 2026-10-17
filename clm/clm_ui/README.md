@@ -67,6 +67,14 @@ harbor trials start -p cb_tasks/<task> -e daytona -a clm_contextbench:ClmStream 
 
 The page only watches: you cannot type during a task.
 
+For kv_store and log_triage the page adds **`single_guess`**
+([`metrics.py`](metrics.py)), a stricter score than ContextBench's `reward`. ContextBench
+counts a query correct when any ANSWER the agent ever wrote for it matches, so several
+guesses for one query cost nothing. `single_guess` counts a query only when the agent
+gave exactly one answer for it and that answer is correct (for kv_store, also: one value
+per ANSWER block). It is written to `verifier/single_guess.json` and `result.json`;
+`verifier/reward.json` stays exactly what ContextBench wrote.
+
 ## Chat
 
 `ClmAgent` with its defaults (nudges at 25/50/75%, the adaptive urgent nudge,
@@ -128,6 +136,7 @@ rejected edit being restored.
 | `session.py` | sandbox, agent task, grading, event log (replayed to a page that reconnects), file listing |
 | `sandbox.py` | `HarborSandbox`: Harbor's Daytona or Docker environment, with the `exec` / `upload_file` / `download_file` surface the agents use, plus file listing for the page |
 | `protocol.py` | what a chat agent is told; ContextBench's readiness check |
+| `metrics.py` | `single_guess`, a stricter kv_store / log_triage score that ContextBench's graders, reused, do not compute |
 | `server.py` | FastAPI app, OpenRouter model list, task list, `clm-ui` CLI |
 | `static/` | the page (no build step) |
 

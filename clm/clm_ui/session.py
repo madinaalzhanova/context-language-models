@@ -29,6 +29,7 @@ from harbor.models.agent.context import AgentContext
 
 from . import protocol
 from .agent import ChatAgent, TaskAgent
+from .metrics import single_guess
 from .sandbox import HarborSandbox, Sandbox, read_host, walk_host
 
 logger = logging.getLogger(__name__)
@@ -288,6 +289,14 @@ class Session:
         try:
             numeric = await asyncio.to_thread(write_rewards, self.logs_dir, gold,
                                               self.verifier_dir)
+            # Our stricter metric, next to ContextBench's (verifier/reward.json stays
+            # exactly what ContextBench wrote).
+            extra = await asyncio.to_thread(
+                single_guess, self.logs_dir, json.loads(gold.read_text("utf-8")))
+            if extra is not None:
+                (self.verifier_dir / "single_guess.json").write_text(
+                    json.dumps(extra, indent=2) + "\n", encoding="utf-8")
+                numeric = {**numeric, **extra}
             self.rewards = numeric
             self.emit("grade", rewards=numeric)
         except Exception as exc:  # noqa: BLE001 - a failed grade is reported, not fatal

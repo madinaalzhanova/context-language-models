@@ -35,6 +35,7 @@ try:
     from clm_harness.clm_agent.harness import ClmAgent
     from clm_ui import protocol
     from clm_ui.agent import line_diff
+    from clm_ui.metrics import single_guess
     from clm_ui.server import _default_tasks_dir
     from clm_ui.session import Session, SessionConfig
     from local_sandbox import LocalSandbox, find_bash, harness_paths
@@ -83,6 +84,65 @@ class HelperTests(unittest.TestCase):
 
     def test_reply_text_drops_marker(self):
         self.assertEqual(protocol.reply_text("hello\nREADY_FOR_NEXT_OP\n"), "hello")
+
+
+def _run_with_answers(tmp: Path, *frames: str) -> Path:
+    """An agent dir whose context snapshots hold these texts, one snapshot each."""
+    snaps = tmp / "agent" / "context_snapshots"
+    snaps.mkdir(parents=True)
+    for i, text in enumerate(frames):
+        (snaps / f"turn-{i:04d}.json").write_text(json.dumps(
+            {"step": i, "tokens": 10, "messages": [{"role": "assistant", "content": text}]}))
+    return tmp / "agent"
+
+
+def _kv(key: str, value: str) -> str:
+    return f"<<<ANSWER key={key}>>>\n{value}\n<<<ANSWER END>>>"
+
+
+def _log(qid: int, answer: str) -> str:
+    return f"<<<ANSWER qid={qid}>>>\n{answer}\n<<<ANSWER END>>>"
+
+
+class SingleGuessTest(unittest.TestCase):
+    """single_guess vs ContextBench's reward, on the same run."""
+
+    KV_GOLD = {"meta": {"task_family": "kv_store"}, "queries": [
+        {"qid": 0, "key": "K1", "value": "ember quartz #aaaaaaaa"},
+        {"qid": 1, "key": "K2", "value": "cedar onyx #bbbbbbbb"},
+        {"qid": 2, "key": "K3", "value": "falcon zebra #cccccccc"},
+        {"qid": 3, "key": "K4", "value": "lattice orbit #dddddddd"}]}
+
+    def _grade(self, gold, *frames):
+        from contextbench.graders import grade_run
+        with tempfile.TemporaryDirectory() as tmp:
+            agent = _run_with_answers(Path(tmp), *frames)
+            return grade_run(agent, gold)["reward"], single_guess(agent, gold)
+
+    def test_kv_store(self):
+        reward, sg = self._grade(self.KV_GOLD,
+            _kv("K1", "ember quartz #aaaaaaaa"),                          # one right guess
+            _kv("K1", "ember quartz #aaaaaaaa")                           # same block again
+            + _kv("K2", "wrong value #eeeeeeee") + _kv("K2", "cedar onyx #bbbbbbbb"),
+            _kv("K3", "falcon zebra #cccccccc or orbit cedar #ffffffff"),  # two values, one block
+            _kv("K4", "lattice orbit #dddddddd") + _kv("K4", "lattice orbit #dddddddd (sure)"))
+        self.assertEqual(reward, 1.0)                 # ContextBench: any guess counts
+        self.assertEqual(sg["single_guess"], 0.25)    # only K1 was answered once
+        self.assertEqual(sg["n_multi_guess"], 2.0)    # K2 (two values), K4 (rewritten)
+
+    def test_log_triage(self):
+        gold = {"meta": {"task_family": "log_triage"},
+                "queries": [{"qid": 0, "type": "count", "answer": "5"},
+                            {"qid": 1, "type": "count", "answer": "7"},
+                            {"qid": 2, "type": "lookup", "answer": "queue deadlock #12ab34cd"}]}
+        reward, sg = self._grade(gold,
+            _log(0, "5") + _log(1, "6"), _log(1, "7"), _log(2, "queue deadlock"))
+        self.assertEqual(reward, 1.0)
+        self.assertAlmostEqual(sg["single_guess"], 2 / 3)   # qid 1 guessed 6, then 7
+        self.assertEqual(sg["n_multi_guess"], 1.0)
+
+    def test_other_families_are_not_scored(self):
+        self.assertIsNone(single_guess(".", {"meta": {"task_family": "needle_retention"}}))
 
 
 class ConfigTest(unittest.TestCase):

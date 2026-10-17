@@ -259,3 +259,5 @@ dialog label input, dialog label select { margin-top: 3px; color: var(--text); }
 .msg .done b { color: var(--ok); }
 .msg.grade { border: 1px solid var(--ok); white-space: pre-wrap; font-family: var(--mono); font-size: 12px; }
 .msg.grade .score { font: 600 22px/1.2 var(--sans); color: var(--ok); margin-bottom: 4px; }
+.msg.grade .score.single { font-size: 16px; color: var(--accent); }
+.msg.grade .score .hint { font-size: 12px; font-weight: 400; }

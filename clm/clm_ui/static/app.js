@@ -281,9 +281,17 @@ const H = {
     const main = r.reward ?? r.score ?? Object.values(r).find((v) => typeof v === "number");
     const rows = Object.entries(r).map(([k, v]) => `${k}: ${typeof v === "number" ? +v.toFixed(4) : v}`);
     const el = chat("assistant grade", rows.join("\n") || "(no rewards)", "ContextBench grade");
-    if (main != null) el.prepend(h("div", { class: "score" }, `${(100 * main).toFixed(1)}%`));
+    const sg = r.single_guess;
+    if (sg != null) {
+      // Ours (clm_ui/metrics.py): only queries answered once, correctly, count.
+      el.prepend(h("div", { class: "score single" }, `single_guess ${(100 * sg).toFixed(1)}%`,
+        h("span", { class: "hint", text: ` · ${fmt(r.n_multi_guess)} queries answered more than once` })));
+    }
+    if (main != null) el.prepend(h("div", { class: "score" }, `${(100 * main).toFixed(1)}%`,
+      sg != null ? h("span", { class: "hint", text: " reward (any guess counts)" }) : null));
     timeline(h("div", { class: "event end" }, "Graded by ContextBench (contextbench.harbor.reward): ", rows.join(", ")));
-    $("session-info").textContent += main != null ? ` · score ${(100 * main).toFixed(1)}%` : "";
+    $("session-info").textContent += (main != null ? ` · score ${(100 * main).toFixed(1)}%` : "") +
+      (sg != null ? ` · single_guess ${(100 * sg).toFixed(1)}%` : "");
   },
 
   fs(ev) { S.roots = ev.roots; renderTree(); },
