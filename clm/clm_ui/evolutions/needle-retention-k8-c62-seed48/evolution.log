@@ -1,0 +1,26 @@
+[08:40:46] evolution needle-retention-k8-c62-seed48: agent qwen/qwen3.5-9b, self-evolution, up to 13 episodes
+[08:40:46] dev: 1 episodes for base
+[08:52:53] train: 1 episodes for base
+[09:09:01] round 1: asking the proposer for 3 candidates
+[09:09:26] round 1: 3 valid candidates, 0 rejections
+[09:09:26] dev: 3 episodes for r1-1-sequential-counter-deletion, r1-2-budget-aware-sequential, r1-3-minimal-direct-deletion
+[09:58:53] round 1: new incumbent r1-1-sequential-counter-deletion
+[09:58:53] train: 1 episodes for r1-1-sequential-counter-deletion
+[10:20:33] round 2: asking the proposer for 3 candidates
+[10:21:19] error: UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 1066: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\clm\clm_ui\evolution.py", line 267, in _main
+    best = evo.run(cfg.rounds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\clm\clm_icl\evolve.py", line 334, in run
+    self.run_round(k)
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\clm\clm_icl\evolve.py", line 275, in run_round
+    resp_path.write_text(resp)
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1048, in write_text
+    return f.write(data)
+           ^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1254.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 1066: character maps to <undefined>
+

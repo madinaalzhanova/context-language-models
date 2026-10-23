@@ -8,7 +8,9 @@
 
 ``chat`` runs ``ChatAgent`` and waits for the user's messages. ``task`` runs a
 ContextBench task the way ``harbor trials start -a clm_contextbench:ClmStream`` does
-(``TaskAgent`` is ``ClmStream``), then grades it with ContextBench's own grader.
+(``TaskAgent`` is ``ClmStream``), then grades it with ContextBench's own grader. With
+``agent="baseline"`` a task runs the base model without CLM instead (``BaselineAgent``,
+ContextBench's append-only agent), graded the same way.
 
 Every event is appended to ``events`` and pushed to each connected page, so a page that
 reconnects replays the session from the start.
@@ -19,6 +21,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 import time
 import traceback
 from dataclasses import asdict, dataclass
@@ -28,9 +31,10 @@ from typing import Any
 from harbor.models.agent.context import AgentContext
 
 from . import protocol
-from .agent import ChatAgent, TaskAgent
+from .agent import BaselineAgent, ChatAgent, TaskAgent
 from .metrics import single_guess
 from .sandbox import HarborSandbox, Sandbox, read_host, walk_host
+from .skills import SkillLibrary, mount_dir
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +48,10 @@ _HEAVY_FIELDS = {"mirror_write": ("text", "mirror"), "mirror_live": ("text", "mi
 PROVIDER = "openrouter/"
 #: Where the agent's commands run: Harbor's Daytona or Docker environment.
 SANDBOXES = ("daytona", "docker")
+#: Task mode's agents: CLM (ClmStream) or the base model without CLM (append-only).
+AGENTS = ("clm", "baseline")
+#: ContextBench's method texts a task can carry (clm_exp/skills/<name>/<family>.md).
+METHOD_SKILLS = ("clm", "base", "none")
 
 
 @dataclass
@@ -51,7 +59,13 @@ class SessionConfig:
     mode: str = "chat"                 # chat | task
     model: str = "qwen/qwen3.5-9b"     # OpenRouter model id
     task: str | None = None            # task mode: a task directory under the tasks dir
-    skill: str = "clm"                 # task mode: clm (the paper's method skill) | none
+    skill: str = "clm"                 # task mode: clm | base (the paper's method texts) | none
+    agent: str = "clm"                 # task mode: clm | baseline (no CLM: append-only)
+    # Steering: a SKILL.md appended to the system prompt (ClmAgent's skill_dirs, the
+    # mechanism clm_icl evolves). "" = none, a library id (skills.SkillLibrary), or
+    # "custom" with the text in steering_text.
+    steering: str = ""
+    steering_text: str = ""
     # Chat only; a task runs with the paper's settings (clm_contextbench.PAPER_KWARGS).
     context_budget_tokens: int = 32000
     allow_edit_growth: str = "fit"     # fit | shrink
@@ -69,8 +83,15 @@ class SessionConfig:
             raise ValueError("choose an OpenRouter model")
         if cfg.mode == "task" and not cfg.task:
             raise ValueError("choose a ContextBench task")
-        if cfg.skill not in ("clm", "none"):
-            raise ValueError(f"skill must be clm or none, got {cfg.skill!r}")
+        if cfg.skill not in METHOD_SKILLS:
+            raise ValueError(f"skill must be one of {METHOD_SKILLS}, got {cfg.skill!r}")
+        if cfg.agent not in AGENTS:
+            raise ValueError(f"agent must be one of {AGENTS}, got {cfg.agent!r}")
+        if cfg.mode == "chat":
+            cfg.agent = "clm"
+        cfg.steering = str(cfg.steering or "").strip()
+        if cfg.steering == "custom" and not str(cfg.steering_text or "").strip():
+            raise ValueError("custom steering: write the skill text")
         cfg.context_budget_tokens = int(cfg.context_budget_tokens)
         cfg.max_tokens = int(cfg.max_tokens) if cfg.max_tokens not in ("", None) else None
         cfg.temperature = float(cfg.temperature) if cfg.temperature not in ("", None) else None
@@ -79,6 +100,9 @@ class SessionConfig:
     def kwargs(self) -> dict[str, Any]:
         """Agent kwargs. OpenRouter takes no chat_template_kwargs, as for
         ``--agent-kwarg send_chat_template_kwargs=false`` on the Harbor command line."""
+        if self.mode == "task" and self.agent == "baseline":
+            # ContextBenchAgent's own defaults are the paper's Base settings.
+            return {"skill": self.skill}
         if self.mode == "task":
             # ClmStream adds PAPER_KWARGS; skill=none leaves the method skill out.
             return {"send_chat_template_kwargs": False, "skill": self.skill}
@@ -98,7 +122,8 @@ class SessionConfig:
 
 class Session:
     def __init__(self, cfg: SessionConfig, *, runs_dir: Path, sandbox_kind: str,
-                 tasks_dir: Path | None, model_info: dict[str, Any] | None = None) -> None:
+                 tasks_dir: Path | None, model_info: dict[str, Any] | None = None,
+                 skills: SkillLibrary | None = None, run_name: str | None = None) -> None:
         self.cfg = cfg
         self.model_info = model_info or {}
         self.task = None
@@ -116,19 +141,28 @@ class Session:
         # One folder per run, laid out like a Harbor trial (harbor trials start
         # --trials-dir): <task>__<time>/ with agent/, verifier/, config.json, result.json.
         stamp = time.strftime("%Y%m%d-%H%M%S")
-        self.id = f"{self.task.name if self.task is not None else 'chat'}__{stamp}"
+        self.id = run_name or f"{self.task.name if self.task is not None else 'chat'}__{stamp}"
         self.dir = (runs_dir / self.id).resolve()
         self.logs_dir = self.dir / "agent"
         self.verifier_dir = self.dir / "verifier"
+        self.context_dir = self.dir / "context"
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.started_at = time.time()
+        # The steering skill, copied into the run folder (skill/SKILL.md): the run keeps
+        # the exact text, and only that folder is uploaded into the sandbox.
+        self.steering_text = (cfg.steering_text.strip() if cfg.steering == "custom" else
+                              (skills or SkillLibrary()).text(cfg.steering) if cfg.steering
+                              else "")
+        self.skill_dir = mount_dir(self.dir, self.steering_text) if self.steering_text else None
         self.rewards: dict[str, Any] | None = None
         self.sandbox: Sandbox = HarborSandbox(sandbox_kind, self.dir, task=self.task,
                                               name=f"clm-ui-{stamp}")
-        self.host_roots = {"agent-logs": self.logs_dir, "verifier": self.verifier_dir}
+        self.host_roots = {"context": self.context_dir, "agent-logs": self.logs_dir,
+                           "verifier": self.verifier_dir, "sandbox": self.dir / "sandbox"}
+        self.sandbox_released = False   # a finished task's sandbox: copied, then deleted
         self.events: list[dict[str, Any]] = []
         self.subscribers: set[asyncio.Queue] = set()
-        self.agent: ChatAgent | TaskAgent | None = None
+        self.agent: ChatAgent | TaskAgent | BaselineAgent | None = None
         self.run_task: asyncio.Task | None = None
         self.pending: list[str] = []   # chat messages sent before the agent exists
         self.state = "starting"
@@ -169,15 +203,22 @@ class Session:
     def _write_config(self) -> None:
         """config.json: what this run is, written when it starts."""
         kwargs = self.cfg.kwargs()
-        if self.task is not None:
+        if self.task is not None and self.cfg.agent == "clm":
             from clm_contextbench.clm_stream import PAPER_KWARGS
             kwargs = {**PAPER_KWARGS, **kwargs}  # what ClmStream runs with
+        if self.skill_dir is not None:
+            kwargs["skill_dirs"] = str(self.skill_dir)
         self._write_json("config.json", {
             "id": self.id, "started_at": _iso(self.started_at), "mode": self.cfg.mode,
+            "agent": (("clm_contextbench:ClmStream" if self.cfg.agent == "clm" else
+                       "contextbench.harbor.agents.base:ContextBenchAgent")
+                      if self.task is not None else "clm_harness:ClmAgent"),
             "model": PROVIDER + self.cfg.model,
             "task": self.task.name if self.task is not None else None,
             "task_dir": str(self.task.task_dir) if self.task is not None else None,
             "sandbox": self.sandbox.kind, "settings": asdict(self.cfg),
+            "steering": self.cfg.steering or None,
+            "steering_file": "skill/SKILL.md" if self.skill_dir is not None else None,
             "agent_kwargs": kwargs})
 
     def _write_result(self, reason: str, usage: Any, terminated_by: Any) -> None:
@@ -195,6 +236,8 @@ class Session:
             "id": self.id, "dir": str(self.dir), "config": asdict(self.cfg),
             "model": PROVIDER + self.cfg.model, "model_info": self.model_info,
             "task": self.task.name if self.task is not None else None,
+            "steering": ({"id": self.cfg.steering, "text": self.steering_text}
+                         if self.steering_text else None),
             "sandbox": sb.kind, "warning": sb.warning, "ctx_file": sb.ctx_file,
             "paths": {"ctx_dir": sb.ctx_dir, "state_dir": sb.state_dir,
                       "workspace": sb.workspace, "logs": str(self.logs_dir)},
@@ -248,9 +291,13 @@ class Session:
         try:
             common = dict(logs_dir=self.logs_dir, model_name=PROVIDER + cfg.model,
                           emit=self.emit, sandbox=sb, refresh_fs=self.refresh_fs,
+                          context_path=self.context_dir / "CONTEXT.json",
                           **cfg.kwargs())
-            agent: ChatAgent | TaskAgent = (
-                TaskAgent(**common) if self.task is not None else ChatAgent(**common))
+            if self.skill_dir is not None:
+                common["skill_dirs"] = str(self.skill_dir)
+            agent: ChatAgent | TaskAgent | BaselineAgent = (
+                ChatAgent(**common) if self.task is None else
+                BaselineAgent(**common) if cfg.agent == "baseline" else TaskAgent(**common))
             self.agent = agent
             if isinstance(agent, ChatAgent):
                 for text in self.pending:
@@ -275,10 +322,30 @@ class Session:
                 await self._grade()
             self._write_result(reason, usage, terminated_by)
             self.emit("status", state="finished", detail=reason)
+            if self.task is not None and reason != "stopped":
+                await self._release_sandbox()
             try:
                 await self.refresh_fs()
             except Exception:  # noqa: BLE001 - the sandbox may already be gone
                 pass
+
+    async def _release_sandbox(self) -> None:
+        """A task is over and graded: copy the folders the file-system column shows to
+        ``<run>/sandbox/``, then delete the sandbox, so none is left running. The column
+        then shows the copies."""
+        for r in self.sandbox.roots():
+            try:
+                await self.sandbox.download_dir(r["path"], self.dir / "sandbox" / _copy_name(r["path"]))
+            except Exception:  # noqa: BLE001 - a folder the run never created
+                pass
+        try:
+            await self.sandbox.stop()
+        except Exception:  # noqa: BLE001 - Daytona deletes it on its own when idle
+            logger.exception("could not delete the sandbox")
+            return
+        self.sandbox_released = True
+        self.emit("notice", text="The run is over, so its sandbox was deleted. Its folders "
+                                 "were copied first: the file-system column shows the copies.")
 
     async def _grade(self) -> None:
         """ContextBench's own grader, as the task's tests/test.sh runs it, on the host."""
@@ -316,9 +383,25 @@ class Session:
     # -------------------------------------------------------- file system
     async def refresh_fs(self) -> None:
         async with self._fs_lock:
-            listed = await self.sandbox.list_trees([r["path"] for r in self.sandbox.roots()])
-            roots = [{**r, "where": "sandbox", "entries": listed[r["path"]]}
-                     for r in self.sandbox.roots()]
+            if self.sandbox_released:
+                roots = []
+                for r in self.sandbox.roots():
+                    name = _copy_name(r["path"])
+                    roots.append({**r, "where": "host", "path": f"sandbox/{name}",
+                                  "label": f"{r['label']} (copy; sandbox deleted)",
+                                  "entries": walk_host(self.dir / "sandbox" / name,
+                                                       f"sandbox/{name}")})
+            else:
+                listed = await self.sandbox.list_trees([r["path"] for r in self.sandbox.roots()])
+                roots = [{**r, "where": "sandbox", "entries": listed[r["path"]]}
+                         for r in self.sandbox.roots()]
+            roots.append({
+                "path": "context", "label": "context itself (host)", "where": "host",
+                "about": "What the model actually receives at each LM call: every message, "
+                         "the pinned system prompt and task included. The context file "
+                         "above is only the editable part of it.",
+                "empty": "written before the first LM call",
+                "entries": walk_host(self.context_dir, "context")})
             roots.append({
                 "path": "agent-logs", "label": "agent logs (host)", "where": "host",
                 "about": "The agent's outputs. context_snapshots/turn-NNNN.json is each LM "
@@ -353,6 +436,11 @@ def _read_json(path: Path) -> Any:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return None
+
+
+def _copy_name(path: str) -> str:
+    """A sandbox folder's name under ``<run>/sandbox/``: ``/tmp/ctx_offload`` -> ``tmp_ctx_offload``."""
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", path.strip("/")) or "root"
 
 
 def _iso(t: float) -> str:

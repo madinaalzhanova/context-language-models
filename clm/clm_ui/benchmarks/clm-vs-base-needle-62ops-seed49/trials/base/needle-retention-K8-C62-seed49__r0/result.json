@@ -1,0 +1,34 @@
+{
+  "id": "needle-retention-K8-C62-seed49__r0",
+  "reason": "completed",
+  "terminated_by": "budget_wall",
+  "rewards": {
+    "reward": 0.11290322580645161,
+    "matched": 56.0,
+    "total": 496.0,
+    "n_snapshots": 8.0,
+    "grader_valid": 1.0,
+    "agent_peak_tokens": 31707.0,
+    "agent_mean_tokens": 20417.375,
+    "graded_from_code": 3,
+    "terminated_by_code": 2,
+    "n_ops_delivered": 7,
+    "n_ops_total": 62,
+    "n_refusals": 0
+  },
+  "started_at": "2026-10-23T09:52:16",
+  "finished_at": "2026-10-23T09:53:34",
+  "duration_s": 77.7,
+  "usage": {
+    "prompt_tokens": 132266,
+    "completion_tokens": 1726,
+    "n_llm_calls": 6,
+    "n_commands": 6,
+    "n_turns": 6,
+    "peak_context_tokens": 31707,
+    "wall_s": 62.2,
+    "terminated_by": "budget_wall",
+    "budget": 32768,
+    "reserve": 2048
+  }
+}

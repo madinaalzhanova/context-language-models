@@ -1,0 +1,23 @@
+{
+  "n_ops_delivered": 1,
+  "n_ops_total": 26,
+  "terminated_by": null,
+  "n_refusals": 0,
+  "n_explains": 0,
+  "stream": {
+    "count": 26,
+    "sha256": "2c582e9b1894c21269c6eed1622c593492d4a36d2efcb3b422191cdf63630808",
+    "verified": true,
+    "path": "/app/stream/chunks.jsonl",
+    "removed": true
+  },
+  "log": [
+    {
+      "kind": "op",
+      "index": 0,
+      "via": "start",
+      "trigger": "<start>",
+      "turn": 0
+    }
+  ]
+}

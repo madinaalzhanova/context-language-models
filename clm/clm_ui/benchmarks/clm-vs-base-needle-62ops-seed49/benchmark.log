@@ -1,0 +1,4 @@
+[09:52:14] benchmark clm-vs-base-needle-62ops-seed49: 2 arms x 1 tasks x 2 repeats = 4 runs, 4 to run, 2 at a time, in pairs
+[09:52:14] start clm/needle-retention-K8-C62-seed49__r0
+[09:52:14] start base/needle-retention-K8-C62-seed49__r0
+[09:53:44] done  base/needle-retention-K8-C62-seed49__r0: score 0.11290322580645161

@@ -1,0 +1,1 @@
+Compact whnever you reach 10000 tokens in context length.

@@ -1,0 +1,21 @@
+{
+  "name": "needle-retention-k8-c62-seed48",
+  "model": "qwen/qwen3.5-9b",
+  "train_tasks": [
+    "needle-retention-K8-C62-seed48"
+  ],
+  "proposer": "self",
+  "proposer_model": "qwen/qwen3.5-9b",
+  "dev_tasks": [
+    "needle-retention-K8-C62-seed48"
+  ],
+  "rounds": 3,
+  "candidates": 3,
+  "reps": 1,
+  "workers": 4,
+  "patience": 0,
+  "method_skill": "clm",
+  "init_skill": "",
+  "optimize": "reward",
+  "episode_timeout_s": 3600.0
+}

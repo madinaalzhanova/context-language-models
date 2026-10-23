@@ -1,0 +1,21 @@
+{
+  "id": "kv-store-R130-seed42__r1",
+  "reason": "stopped",
+  "terminated_by": "timeout",
+  "rewards": null,
+  "started_at": "2026-10-23T09:48:10",
+  "finished_at": "2026-10-23T09:50:02",
+  "duration_s": 111.7,
+  "usage": {
+    "prompt_tokens": 183429,
+    "completion_tokens": 3567,
+    "n_llm_calls": 16,
+    "n_commands": 16,
+    "n_turns": 16,
+    "peak_context_tokens": 12241,
+    "wall_s": 99.4,
+    "terminated_by": "timeout",
+    "budget": 32768,
+    "reserve": 2048
+  }
+}

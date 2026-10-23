@@ -1,0 +1,27 @@
+{
+ "task_id": "needle-retention-K8-C62-seed48",
+ "rep": 0,
+ "reward": 0.9838709677419355,
+ "cost": 0.10356683,
+ "cost_metric": "usd",
+ "trajectory_path": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\evolutions\\needle-retention-k8-c62-seed48\\trials\\train\\r1-1-sequential-counter-deletion\\needle-retention-K8-C62-seed48__r0\\agent\\trajectory.ctx.json",
+ "log_dir": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\evolutions\\needle-retention-k8-c62-seed48\\trials\\train\\r1-1-sequential-counter-deletion\\needle-retention-K8-C62-seed48__r0",
+ "error": null,
+ "extra": {
+  "rewards": {
+   "reward": 0.9838709677419355,
+   "matched": 488.0,
+   "total": 496.0,
+   "n_snapshots": 64.0,
+   "grader_valid": 1.0,
+   "agent_peak_tokens": 23530.0,
+   "agent_mean_tokens": 15685.234375,
+   "graded_from_code": 3,
+   "terminated_by_code": 1,
+   "n_ops_delivered": 62,
+   "n_ops_total": 62,
+   "n_refusals": 0
+  },
+  "n_lm_calls": 62
+ }
+}

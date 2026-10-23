@@ -1,0 +1,200 @@
+## TASKS
+ContextBench tasks (needle-retention-K8): a long stream of operations delivered one at a time to a CLM agent with a 32768-token context budget, with ContextBench's CLM method text inserted into the task instruction. The agent manages its context by editing its context file; the skill is appended to its system prompt. Score: reward.
+
+## CURRENT SKILL (SKILL.md; the text you are improving on)
+---
+name: sequential-counter-deletion
+description: Maintain a remaining-chunk counter and delete in order; targets E1 step 2 ValueError where marker not found due to missing state; predicted: +accuracy (complete all 62 chunks), -cost (no wasted debugging turns)
+---
+# Working discipline (each rule fires on its trigger; no standing ritual)
+
+1. On first turn: read context file, extract all chunk headers matching `=== chunk N/62`, parse N values, set `remaining = max(N values) - current_chunk + 1`, initialize `current_chunk = 1`
+2. Each turn: if `remaining <= 0` stop and submit final output; else compute target filler block as `<<<FILLER-BLOCK 000{current_chunk-1}#<hash> START`
+3. Execute deletion script that: (a) finds START marker, (b) finds END marker, (c) writes head + t[k:i] + '[deleted]' + tail, (d) appends `echo READY_FOR_NEXT_OP` as standalone final statement
+4. Never print context, never search for markers with grep/re, never debug-print; only output the deletion result
+5. After each successful deletion: increment `current_chunk`, decrement `remaining`; if `remaining == 0` break loop immediately
+6. If deletion fails (ValueError), retry once with `current_chunk + 1` then stop to avoid budget exhaustion
+7. Final turn: if `remaining > 0` and budget near limit (31000/32768), delete only up to chunk where budget allows, then submit
+
+## NOTE ON THE CURRENT SKILL'S ROLLOUTS (evidence)
+# Rollouts of the current skill on the training tasks
+
+episodes: 1 (0 without a grade); mean reward 0.984; mean cost 0.104 (usd)
+
+| task | episode | reward | cost | turns | context edits | nudges |
+|---|---|---|---|---|---|---|
+| needle-retention-K8-C62-seed48 | E1 | 0.98 | 0.104 | - | - | - |
+
+## Contrastive pairs (n=0)
+
+Each pair is a worse run and a better run, of the same task unless noted.
+
+
+No run did better than another run here; digests of up to 10 runs follow.
+
+
+### E1 (task needle-retention-K8-C62-seed48, reward 0.98)
+
+```
+step 1 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00000'
+h = '=== chunk 1/'
+prev = None
+i = t.index(a)
+j = t.index('END>>>', i) + len('END>>>')
+k = t.index(h)
+head = t[:k]
+new_text = head + t[k:i] + '[filler 00000 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 1 [out 134 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~7476/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~7335->3508 tokens, 3 turns]
+--- context edit: segment 2 starts with 6 messages, 9944 tokens ---
+step 2 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00001'
+h = '=== chunk 2/'
+prev = '[filler 00000 d ...[48 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00001 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 2 [out 134 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~4249/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~9944->3758 tokens, 3 turns]
+--- context edit: segment 3 starts with 6 messages, 8332 tokens ---
+step 3 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00002'
+h = '=== chunk 3/'
+prev = '[filler 00001 d ...[48 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00002 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 3 [out 134 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~5444/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~8332->4022 tokens, 3 turns]
+--- context edit: segment 4 starts with 6 messages, 8514 tokens ---
+step 4 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00003'
+h = '=== chunk 4/'
+prev = '[filler 00002 d ...[48 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00003 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 4 [out 134 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~5991/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~8514->4277 tokens, 3 turns]
+--- context edit: segment 5 starts with 6 messages, 8893 tokens ---
+step 5 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00004'
+h = '=== chunk 5/'
+prev = '[filler 00003 d ...[48 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00004 deleted]' + t[j:]
+p.write_text(new_text) ...[35092 chars]...  t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00057 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 58 [out 137 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~24483/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~22429->18302 tokens, 7 turns]
+--- context edit: segment 59 starts with 10 messages, 22761 tokens ---
+step 59 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00058'
+h = '=== chunk 59/'
+prev = '[filler 00057  ...[49 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00058 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 59 [out 137 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~24870/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~22761->18553 tokens, 7 turns]
+--- context edit: segment 60 starts with 10 messages, 22996 tokens ---
+step 60 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00059'
+h = '=== chunk 60/'
+prev = '[filler 00058  ...[49 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00059 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 60 [out 137 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~25120/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~22996->18808 tokens, 7 turns]
+--- context edit: segment 61 starts with 10 messages, 23293 tokens ---
+step 61 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00060'
+h = '=== chunk 61/'
+prev = '[filler 00059  ...[49 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00060 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 61 [out 137 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~25441/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~23293->19072 tokens, 7 turns]
+--- context edit: segment 62 starts with 11 messages, 23530 tokens ---
+step 62 [cmd] python3 - <<'PY' && echo READY_FOR_NEXT_OP
+import pathlib
+p = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()
+a = '<<<FILLER-BLOCK 00061'
+h = '=== chunk 62/'
+prev = '[filler 00060  ...[49 chars]...  + len('END>>>')
+k = t.index(h)
+head = t[:t.index(prev) + len(prev)] + '\n' if (prev and prev in t[:k]) else t[:k]
+new_text = head + t[k:i] + '[filler 00061 deleted]' + t[j:]
+p.write_text(new_text)
+PY
+step 62 [out 137 chars] READY_FOR_NEXT_OP
+
+(exit_code=0)
+[context: ~25967/30720 tokens]
+[LIVE_CTX_MAIN.txt: edit applied — context ~23530->19397 tokens, 7 turns]
+--- context edit: segment 63 starts with 9 messages, 19702 tokens ---
+```
+
+
+## YOUR TASK
+Follow the loop. Emit the ANALYSIS block, then the SKILL blocks per the OUTPUT CONTRACT. Nothing else.

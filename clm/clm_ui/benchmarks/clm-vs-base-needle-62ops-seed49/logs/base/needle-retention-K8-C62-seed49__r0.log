@@ -1,0 +1,40 @@
+Exception ignored in atexit callback: <bound method DaytonaClientManager._cleanup_sync of <harbor.environments.daytona.environment.DaytonaClientManager object at 0x0000029915511610>>
+Traceback (most recent call last):
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\harbor\environments\daytona\environment.py", line 222, in _cleanup_sync
+    asyncio.run(self._cleanup())
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\harbor\environments\daytona\environment.py", line 232, in _cleanup
+    await self._client.close()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\_async\daytona.py", line 460, in close
+    await self._event_dispatcher.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\internal\event_dispatcher.py", line 269, in disconnect
+    await self._disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\internal\event_dispatcher.py", line 292, in _disconnect
+    await sio.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\socketio\async_client.py", line 336, in disconnect
+    await self.eio.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\engineio\async_client.py", line 175, in disconnect
+    await self.read_loop_task
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\engineio\async_client.py", line 589, in _read_loop_websocket
+    p = await asyncio.wait_for(
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\aiohttp\client_ws.py", line 427, in receive
+    msg = await self._reader.read()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "aiohttp/_websocket/reader_py.py", line 140, in read
+    raise
+  File "aiohttp/_websocket/reader_py.py", line 137, in aiohttp._websocket.reader_c.WebSocketDataQueue.read
+    await self._waiter
+asyncio.exceptions.CancelledError: 
+EPISODE_RESULT {"run_dir": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\benchmarks\\clm-vs-base-needle-62ops-seed49\\trials\\base\\needle-retention-K8-C62-seed49__r0", "rewards": {"reward": 0.11290322580645161, "matched": 56.0, "total": 496.0, "n_snapshots": 8.0, "grader_valid": 1.0, "agent_peak_tokens": 31707.0, "agent_mean_tokens": 20417.375, "graded_from_code": 3, "terminated_by_code": 2, "n_ops_delivered": 7, "n_ops_total": 62, "n_refusals": 0}, "usage": {"prompt_tokens": 132266, "completion_tokens": 1726, "n_llm_calls": 6, "n_commands": 6, "n_turns": 6, "peak_context_tokens": 31707, "wall_s": 62.2, "terminated_by": "budget_wall", "budget": 32768, "reserve": 2048}}

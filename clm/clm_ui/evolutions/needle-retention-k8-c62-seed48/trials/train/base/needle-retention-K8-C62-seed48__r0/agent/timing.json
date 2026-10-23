@@ -1,0 +1,296 @@
+[
+  {
+    "step": 1,
+    "llm_s": 27.6,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00000'\nh = '=== chunk 1/62 (61 op(s) remaining af"
+  },
+  {
+    "step": 2,
+    "llm_s": 12.7,
+    "bash_s": 1.0,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00001'\nh = '=== chunk 3/62 (59 op(s) remaining af"
+  },
+  {
+    "step": 3,
+    "llm_s": 10.7,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\nprint(\"=== First 500 chars ===\")\nprint(t[:500])\nprint(\"=== Last 500 chars ===\")\nprint(t[-500:])\nP"
+  },
+  {
+    "step": 4,
+    "llm_s": 4.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Find what filler block markers exist\nimport re\nfor m in re.findall(r'<<<FILLER-BLOCK (\\d+#[a-f0"
+  },
+  {
+    "step": 5,
+    "llm_s": 12.0,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00001#d412b11b'\nh = '=== chunk 3/62 (59 op(s) rem"
+  },
+  {
+    "step": 6,
+    "llm_s": 217.2,
+    "empty_turn": true
+  },
+  {
+    "step": 7,
+    "llm_s": 12.0,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00002#a3af8e07'\nh = '=== chunk 3/62 (59 op(s) rem"
+  },
+  {
+    "step": 8,
+    "llm_s": 27.2,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00003#7eb38fd4'\nh = '=== chunk 4/62 (58 op(s) rem"
+  },
+  {
+    "step": 9,
+    "llm_s": 19.1,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00004#780dc68d'\nh = '=== chunk 5/62 (57 op(s) rem"
+  },
+  {
+    "step": 10,
+    "llm_s": 12.1,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00005#ae7c2a97'\nh = '=== chunk 6/62 (56 op(s) rem"
+  },
+  {
+    "step": 11,
+    "llm_s": 17.8,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00006#27f603ac START'\nh = '=== chunk 7/62 (55 op("
+  },
+  {
+    "step": 12,
+    "llm_s": 19.9,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00007#6df95513 START'\nh = '=== chunk 8/62 (54 op("
+  },
+  {
+    "step": 13,
+    "llm_s": 16.9,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00008#4a81848a START'\nh = '=== chunk 9/62 (53 op("
+  },
+  {
+    "step": 14,
+    "llm_s": 27.8,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00009#f4a82b11 START'\nh = '=== chunk 10/62 (52 op"
+  },
+  {
+    "step": 15,
+    "llm_s": 28.7,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00010#c7b2cd52 START'\nh = '=== chunk 11/62 (51 op"
+  },
+  {
+    "step": 16,
+    "llm_s": 41.2,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00011#b6d0f71a START'\nh = '=== chunk 12/62 (50 op"
+  },
+  {
+    "step": 17,
+    "llm_s": 17.6,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00012#8e1744c3 START'\nh = '=== chunk 13/62 (49 op"
+  },
+  {
+    "step": 18,
+    "llm_s": 23.2,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00013#494d86b0 START'\nh = '=== chunk 14/62 (48 op"
+  },
+  {
+    "step": 19,
+    "llm_s": 21.3,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00014#bdd30fba START'\nh = '=== chunk 15/62 (47 op"
+  },
+  {
+    "step": 20,
+    "llm_s": 16.4,
+    "bash_s": 0.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00015#c61c58d1 START'\nh = '=== chunk 16/62 (46 op"
+  },
+  {
+    "step": 21,
+    "llm_s": 12.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00016#6d239106 START'\nh = '=== chunk 17/62 (45 op"
+  },
+  {
+    "step": 22,
+    "llm_s": 6.4,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00017#884a53d9 START'\nh = '=== chunk 18/62 (44 op"
+  },
+  {
+    "step": 23,
+    "llm_s": 11.5,
+    "bash_s": 0.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00018#2e694c98 START'\nh = '=== chunk 19/62 (43 op"
+  },
+  {
+    "step": 24,
+    "llm_s": 19.0,
+    "bash_s": 0.9,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00020#50379667 START'\nh = '=== chunk 21/62 (41 op"
+  },
+  {
+    "step": 25,
+    "llm_s": 14.0,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\nimport re\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\n# Find the correct filler block pattern\nfor m in re.findall("
+  },
+  {
+    "step": 26,
+    "llm_s": 23.3,
+    "bash_s": 0.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00020#4ff0e1e1 START'\nh = '=== chunk 21/62 (41 op"
+  },
+  {
+    "step": 27,
+    "llm_s": 25.1,
+    "bash_s": 0.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00021#70509559 START'\nh = '=== chunk 22/62 (40 op"
+  },
+  {
+    "step": 28,
+    "llm_s": 27.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00022#5ffe168f START'\nh = '=== chunk 23/62 (39 op"
+  },
+  {
+    "step": 29,
+    "llm_s": 26.1,
+    "bash_s": 0.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\n# Find all filler blocks to see which ones still exist\nimport re\nfor m"
+  },
+  {
+    "step": 30,
+    "llm_s": 61.1,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00024#62a8378b START'\nh = '=== chunk 25/62 (37 op"
+  },
+  {
+    "step": 31,
+    "llm_s": 20.8,
+    "bash_s": 0.9,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00026#59775738 START'\nh = '=== chunk 27/62 (35 op"
+  },
+  {
+    "step": 32,
+    "budget_final_turn": true,
+    "tokens": 31297
+  },
+  {
+    "step": 32,
+    "llm_s": 35.5,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Find what filler block markers exist\nimport re\nfor m in re.findall(r'<<<FILLER-BLOCK (\\d+#[a-f0"
+  },
+  {
+    "step": 33,
+    "budget_stop": true,
+    "tokens": 31760
+  }
+]

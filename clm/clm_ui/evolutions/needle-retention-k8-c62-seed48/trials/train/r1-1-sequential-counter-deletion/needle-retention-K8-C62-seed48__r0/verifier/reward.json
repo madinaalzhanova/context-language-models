@@ -1,0 +1,14 @@
+{
+  "reward": 0.9838709677419355,
+  "matched": 488.0,
+  "total": 496.0,
+  "n_snapshots": 64.0,
+  "grader_valid": 1.0,
+  "agent_peak_tokens": 23530.0,
+  "agent_mean_tokens": 15685.234375,
+  "graded_from_code": 3,
+  "terminated_by_code": 1,
+  "n_ops_delivered": 62,
+  "n_ops_total": 62,
+  "n_refusals": 0
+}

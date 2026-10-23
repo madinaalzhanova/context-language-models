@@ -1,0 +1,452 @@
+[
+  {
+    "step": 1,
+    "llm_s": 26.0,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<SET-BATCH 0000#9226d9e1 BEGIN'\nprev = None\ni = t.index(a); j ="
+  },
+  {
+    "step": 2,
+    "llm_s": 23.8,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<SET-BATCH 0001#21984b10 BEGIN'\nprev = '[batch 0000 offloaded]'"
+  },
+  {
+    "step": 3,
+    "llm_s": 9.4,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00122 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 4,
+    "llm_s": 6.3,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00122>>>\\n%s\\n<<<ANSWER END>>>\\n' 'fathom lattice orbit cobble harbor lattice harbor indigo thistle ember marble fathom lantern zebra lantern falcon zebra russet lattice auburn "
+  },
+  {
+    "step": 5,
+    "llm_s": 4.7,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00015 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 6,
+    "llm_s": 5.6,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00015>>>\\n%s\\n<<<ANSWER END>>>\\n' 'saffron harbor thistle auburn zebra russet marble cedar garnet copper trellis marble marble crimson cedar spruce verdant saffron meadow saffro"
+  },
+  {
+    "step": 7,
+    "llm_s": 5.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00022 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 8,
+    "llm_s": 5.9,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00022>>>\\n%s\\n<<<ANSWER END>>>\\n' 'marble cobble marble saffron cinder cobble crimson auburn verdant spruce harbor garnet quartz mistral crimson spruce crimson cobalt cinder qua"
+  },
+  {
+    "step": 9,
+    "llm_s": 9.8,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00035 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 10,
+    "llm_s": 7.0,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00035>>>\\n%s\\n<<<ANSWER END>>>\\n' 'crimson falcon harbor trellis lantern onyx cobalt marble ember garnet ember willow cobble boulder fathom saffron onyx russet russet falcon gar"
+  },
+  {
+    "step": 11,
+    "llm_s": 5.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00049 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 12,
+    "llm_s": 7.5,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00049>>>\\n%s\\n<<<ANSWER END>>>\\n' 'meadow cobalt cobalt cobalt cinder thistle lattice quartz orbit verdant ember onyx copper cinder orbit boulder trellis copper thistle fathom p"
+  },
+  {
+    "step": 13,
+    "llm_s": 8.3,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00017 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 14,
+    "llm_s": 9.9,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00017>>>\\n%s\\n<<<ANSWER END>>>\\n' 'cinder meadow verdant glacier ember trellis fathom trellis onyx glacier spruce boulder quartz cedar onyx auburn nimbus trellis spruce lantern "
+  },
+  {
+    "step": 15,
+    "llm_s": 6.1,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00053 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 16,
+    "llm_s": 12.4,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00053>>>\\n%s\\n<<<ANSWER END>>>\\n' 'nimbus quartz auburn mistral marble fathom copper meadow spruce zebra cinder crimson garnet meadow glacier cinder spruce onyx boulder ember sp"
+  },
+  {
+    "step": 17,
+    "llm_s": 14.1,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00025 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 18,
+    "llm_s": 25.0,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00025>>>\\n%s\\n<<<ANSWER END>>>\\n' 'copper mistral cinder lattice meadow fathom verdant lantern onyx cobble thistle cinder lattice garnet willow cinder nimbus kindle saffron mist"
+  },
+  {
+    "step": 19,
+    "llm_s": 16.1,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00082 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 20,
+    "llm_s": 12.1,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00082>>>\\n%s\\n<<<ANSWER END>>>\\n' 'harbor onyx russet russet cedar boulder glacier boulder orbit cobalt marble mistral zebra nimbus onyx nimbus zebra spruce cobble nimbus boulde"
+  },
+  {
+    "step": 21,
+    "llm_s": 13.0,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00113 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 22,
+    "llm_s": 6.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00113>>>\\n%s\\n<<<ANSWER END>>>\\n' 'quartz quartz falcon willow glacier falcon spruce cobble willow saffron onyx auburn vellum meadow cobalt spruce fathom saffron lattice garnet "
+  },
+  {
+    "step": 23,
+    "llm_s": 6.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00102 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 24,
+    "llm_s": 5.9,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00102>>>\\n%s\\n<<<ANSWER END>>>\\n' 'onyx trellis russet meadow lattice indigo falcon cobble cedar garnet thistle quartz trellis lantern spruce verdant auburn verdant vellum verda"
+  },
+  {
+    "step": 25,
+    "llm_s": 5.8,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00067 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 26,
+    "llm_s": 6.7,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00067>>>\\n%s\\n<<<ANSWER END>>>\\n' 'boulder glacier thistle cobalt glacier boulder trellis vellum cinder harbor vellum copper vellum zebra copper cinder saffron orbit meadow spru"
+  },
+  {
+    "step": 27,
+    "llm_s": 9.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00031 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 28,
+    "llm_s": 11.7,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00031>>>\\n%s\\n<<<ANSWER END>>>\\n' 'harbor lantern onyx vellum russet boulder zebra marble boulder boulder garnet meadow marble indigo cedar cinder ember mistral marble willow sa"
+  },
+  {
+    "step": 29,
+    "llm_s": 11.7,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00080 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 30,
+    "llm_s": 8.5,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00080>>>\\n%s\\n<<<ANSWER END>>>\\n' 'falcon saffron trellis marble trellis boulder pewter cobble glacier russet copper saffron boulder ember mistral auburn spruce copper willow bo"
+  },
+  {
+    "step": 31,
+    "llm_s": 4.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00119 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 32,
+    "llm_s": 12.5,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00119>>>\\n%s\\n<<<ANSWER END>>>\\n' 'onyx lattice mistral nimbus russet meadow crimson meadow lantern indigo pewter zebra orbit spruce fathom boulder fathom onyx cinder spruce cob"
+  },
+  {
+    "step": 33,
+    "llm_s": 5.3,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00069 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 34,
+    "llm_s": 13.8,
+    "bash_s": 1.7,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00069>>>\\n%s\\n<<<ANSWER END>>>\\n' 'crimson nimbus cobble kindle auburn ember indigo indigo vellum pewter boulder cobble cedar ember quartz meadow vellum nimbus vellum cobalt gla"
+  },
+  {
+    "step": 35,
+    "llm_s": 7.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00101 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 36,
+    "llm_s": 7.4,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00101>>>\\n%s\\n<<<ANSWER END>>>\\n' 'copper cobalt glacier auburn lantern boulder onyx auburn cobalt falcon kindle harbor auburn harbor quartz saffron trellis saffron cobble willo"
+  },
+  {
+    "step": 37,
+    "llm_s": 6.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00002 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 38,
+    "llm_s": 15.4,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00002>>>\\n%s\\n<<<ANSWER END>>>\\n' 'zebra marble boulder cobalt marble thistle auburn saffron garnet lattice harbor lattice copper pewter saffron meadow harbor mistral falcon har"
+  },
+  {
+    "step": 39,
+    "llm_s": 6.8,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00048 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 40,
+    "llm_s": 11.3,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00048>>>\\n%s\\n<<<ANSWER END>>>\\n' 'kindle boulder garnet fathom cinder thistle ember pewter cinder vellum marble onyx verdant garnet spruce onyx thistle glacier cinder glacier i"
+  },
+  {
+    "step": 41,
+    "llm_s": 6.4,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00100 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 42,
+    "llm_s": 6.3,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00100>>>\\n%s\\n<<<ANSWER END>>>\\n' 'willow auburn willow auburn glacier lattice thistle cobalt lantern trellis vellum lattice saffron thistle quartz cobalt nimbus cinder vellum f"
+  },
+  {
+    "step": 43,
+    "llm_s": 7.2,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00091 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 44,
+    "llm_s": 5.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00091>>>\\n%s\\n<<<ANSWER END>>>\\n' 'kindle glacier onyx onyx willow trellis auburn nimbus mistral russet falcon marble trellis willow garnet orbit onyx onyx kindle quartz auburn "
+  },
+  {
+    "step": 45,
+    "llm_s": 5.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00045 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 46,
+    "llm_s": 5.6,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00045>>>\\n%s\\n<<<ANSWER END>>>\\n' 'orbit spruce saffron cedar ember garnet cobalt pewter crimson orbit verdant falcon quartz pewter meadow pewter pewter marble verdant willow la"
+  },
+  {
+    "step": 47,
+    "llm_s": 4.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00061 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 48,
+    "llm_s": 8.3,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00061>>>\\n%s\\n<<<ANSWER END>>>\\n' 'lattice thistle kindle ember boulder cobalt harbor saffron vellum fathom willow cinder cobalt marble vellum copper crimson onyx orbit spruce f"
+  },
+  {
+    "step": 49,
+    "llm_s": 7.6,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "grep 'SET K00114 =' /tmp/ctx_offload/* 2>/dev/null | head -1"
+  },
+  {
+    "step": 50,
+    "llm_s": 8.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "printf '<<<ANSWER key=K00114>>>\\n%s\\n<<<ANSWER END>>>\\n' 'garnet copper meadow mistral spruce pewter cinder pewter cobble saffron glacier boulder verdant quartz cobble verdant orbit zebra thistle garn"
+  }
+]

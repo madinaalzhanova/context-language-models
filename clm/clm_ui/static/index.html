@@ -13,6 +13,8 @@
     <div class="status" id="status" data-state="idle">idle</div>
     <div class="actions">
       <button id="btn-stop" class="ghost" disabled>Stop</button>
+      <button id="btn-bench" class="ghost">Benchmark</button>
+      <button id="btn-evo" class="ghost">Evolution</button>
       <button id="btn-new">New session</button>
     </div>
   </header>
@@ -101,13 +103,28 @@
           <select name="task" id="task-select"></select>
         </label>
         <p class="hint" id="task-hint"></p>
+        <label>Agent
+          <select name="agent">
+            <option value="clm">CLM: ClmStream, the model edits its own context</option>
+            <option value="baseline">base model without CLM: append-only until the budget wall</option>
+          </select>
+        </label>
         <label>Method skill
           <select name="skill">
             <option value="clm">clm: the paper's CLM skill (offload script given)</option>
+            <option value="base">base: the paper's text for the base model</option>
             <option value="none">none: task text only, the model finds its own way</option>
           </select>
         </label>
       </div>
+      <label>Steering skill (a SKILL.md appended to the system prompt)
+        <select name="steering" id="steering-select"></select>
+      </label>
+      <label id="steering-custom" hidden>Skill text
+        <textarea name="steering_text" rows="6" placeholder="How the agent should manage its context, e.g. when to compact and what to keep."></textarea>
+      </label>
+      <p class="hint" id="steering-hint"></p>
+      <pre class="prefix-text" id="steering-preview" hidden></pre>
       <div class="grid2 chat-only">
         <label>Context budget (tokens) <input name="context_budget_tokens" type="number" min="0"></label>
         <label>Edit gate
@@ -128,6 +145,137 @@
     </form>
   </dialog>
 
+  <dialog id="evo">
+    <div class="evo-head">
+      <h3>Skill evolution <span class="hint">(clm_icl: evolve the steering skill on ContextBench tasks)</span></h3>
+      <select id="evo-run"></select>
+      <span class="status" id="evo-status" data-state="idle">idle</span>
+      <button class="ghost" id="evo-stop" hidden>Stop</button>
+      <button class="ghost" id="evo-close">Close</button>
+    </div>
+
+    <!-- start a run -->
+    <form id="evo-form" class="evo-form">
+      <div class="grid2">
+        <label>Name (a new name starts a run; an existing one resumes it)
+          <input name="name" required placeholder="kv-steer-1"></label>
+        <label>Score to optimize
+          <select name="optimize">
+            <option value="reward">reward: ContextBench's (any guess counts)</option>
+            <option value="single_guess">single_guess: one answer per query (kv_store, log_triage)</option>
+          </select></label>
+        <label>Agent model (OpenRouter)
+          <input name="model" list="model-list" required placeholder="qwen/qwen3.5-9b" autocomplete="off"></label>
+        <label>Who writes the new skills
+          <select name="proposer" id="evo-proposer">
+            <option value="self">self-evolution: the agent's own model (default)</option>
+            <option value="teacher">teacher: another model</option>
+          </select></label>
+        <label id="evo-teacher" hidden>Teacher model (OpenRouter)
+          <input name="proposer_model" list="model-list" placeholder="a stronger model, e.g. qwen/qwen3.6-27b" autocomplete="off"></label>
+        <label>Training tasks (the proposer reads these runs)
+          <select name="train_tasks" id="evo-train" multiple size="8"></select></label>
+        <label>Development tasks (the gate scores on these; none = training tasks)
+          <select name="dev_tasks" id="evo-dev" multiple size="8"></select></label>
+        <label>Rounds <input name="rounds" type="number" min="1" value="3"></label>
+        <label>Candidates per round <input name="candidates" type="number" min="1" value="3"></label>
+        <label>Repeats per task <input name="reps" type="number" min="1" value="1"></label>
+        <label>Episodes in parallel <input name="workers" type="number" min="1" value="4"></label>
+        <label>Method text (ContextBench's, in the instruction)
+          <select name="method_skill">
+            <option value="clm">clm: the paper's CLM method text</option>
+            <option value="none">none</option>
+          </select></label>
+        <label>Start from skill
+          <select name="init_skill" id="evo-init"></select></label>
+      </div>
+      <p class="hint" id="evo-estimate"></p>
+      <div class="dlg-actions"><button type="submit">Start evolution</button></div>
+    </form>
+
+    <!-- a run -->
+    <div id="evo-view" class="evo-view" hidden>
+      <div class="evo-summary" id="evo-summary"></div>
+      <div class="evo-cols">
+        <div>
+          <h4>Skills <span class="hint">dev score = mean of the optimized score on the development tasks</span></h4>
+          <table class="evo-table" id="evo-skills"></table>
+          <h4>Rounds</h4>
+          <div id="evo-rounds"></div>
+          <h4>Log</h4>
+          <pre class="evo-log" id="evo-log"></pre>
+        </div>
+        <div>
+          <div class="evo-pane-head"><b id="evo-pane-title">Select a skill or a round</b>
+            <button class="ghost small" id="evo-use" hidden>Use in a new session</button></div>
+          <div class="evo-pane" id="evo-pane"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="bench">
+    <div class="evo-head">
+      <h3>Benchmark <span class="hint">(the same tasks under several setups, side by side)</span></h3>
+      <select id="bench-run"></select>
+      <span class="status" id="bench-status" data-state="idle">idle</span>
+      <button class="ghost" id="bench-stop" hidden>Stop</button>
+      <button class="ghost" id="bench-close">Close</button>
+    </div>
+
+    <!-- start a benchmark -->
+    <form id="bench-form" class="evo-form">
+      <div class="grid2">
+        <label>Name (a new name starts a benchmark; an existing one resumes it)
+          <input name="name" required placeholder="clm-vs-base-needle"></label>
+        <label>Model for arms that name none (OpenRouter)
+          <input name="model" list="model-list" required placeholder="qwen/qwen3.5-9b" autocomplete="off"></label>
+        <label>Tasks (Ctrl+click for several)
+          <select id="bench-tasks" multiple size="8"></select></label>
+        <div>
+          <label>Repeats per task and arm <input name="reps" type="number" min="1" value="3"></label>
+          <label>Runs in parallel <input name="workers" type="number" min="1" value="4"></label>
+          <label class="check"><input name="paired" type="checkbox" checked> Run the arms in pairs: each
+            repeat's runs start together, and the next pair waits for the whole pair to finish</label>
+          <p class="hint">Repeats give the standard errors: with 1 repeat there is none.</p>
+        </div>
+      </div>
+      <h4>Arms <span class="hint">(the first arm is the reference the others are compared with)</span></h4>
+      <table class="evo-table bench-arms" id="bench-arms"></table>
+      <div class="bench-arm-actions">
+        <button type="button" class="ghost small" id="bench-add">+ arm</button>
+        <button type="button" class="ghost small" id="bench-preset">CLM vs base model</button>
+      </div>
+      <p class="hint" id="bench-estimate"></p>
+      <div class="dlg-actions"><button type="submit">Start benchmark</button></div>
+    </form>
+
+    <!-- a benchmark -->
+    <div id="bench-view" class="evo-view" hidden>
+      <div class="evo-summary" id="bench-summary"></div>
+      <div class="bench-cols">
+        <div class="bench-main">
+          <h4>Results <span class="hint">mean ± standard error over graded runs</span></h4>
+          <div class="bench-scroll"><table class="evo-table bench-table" id="bench-results"></table></div>
+          <h4>Score by task</h4>
+          <div class="bench-scroll"><table class="evo-table bench-table" id="bench-bytask"></table></div>
+          <h4>Running now <span class="hint" id="bench-live-hint"></span></h4>
+          <div class="bench-tiles" id="bench-tiles"></div>
+          <h4>All runs <span class="hint">one dot per repeat; click one to follow it</span></h4>
+          <div class="bench-scroll"><table class="evo-table bench-matrix" id="bench-matrix"></table></div>
+          <h4>Log</h4>
+          <pre class="evo-log" id="bench-log"></pre>
+        </div>
+        <div class="bench-side">
+          <div class="evo-pane-head"><b id="bench-pane-title">Select a run</b></div>
+          <div id="bench-pane"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <script src="/static/app.js"></script>
+  <script src="/static/evolution.js"></script>
+  <script src="/static/bench.js"></script>
 </body>
 </html>

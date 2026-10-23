@@ -1,0 +1,27 @@
+{
+  "name": "clm-vs-base-needle-62ops-seed49",
+  "model": "qwen/qwen3.5-9b",
+  "tasks": [
+    "needle-retention-K8-C62-seed49"
+  ],
+  "arms": [
+    {
+      "label": "clm",
+      "agent": "clm",
+      "model": "qwen/qwen3.5-9b",
+      "method_skill": "clm",
+      "steering": ""
+    },
+    {
+      "label": "base",
+      "agent": "baseline",
+      "model": "qwen/qwen3.5-9b",
+      "method_skill": "base",
+      "steering": ""
+    }
+  ],
+  "reps": 2,
+  "workers": 2,
+  "episode_timeout_s": 3600.0,
+  "paired": true
+}

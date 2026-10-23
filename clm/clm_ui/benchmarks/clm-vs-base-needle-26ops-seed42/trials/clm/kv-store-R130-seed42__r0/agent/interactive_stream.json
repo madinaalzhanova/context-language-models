@@ -1,0 +1,198 @@
+{
+  "n_ops_delivered": 26,
+  "n_ops_total": 26,
+  "terminated_by": "stream_exhausted",
+  "n_refusals": 0,
+  "n_explains": 0,
+  "stream": {
+    "count": 26,
+    "sha256": "a1fabaaf24e95b36d4601858d77ad18434d734b556a28e0ca973a5fe700c8d22",
+    "verified": true,
+    "path": "/app/stream/chunks.jsonl",
+    "removed": true
+  },
+  "log": [
+    {
+      "kind": "op",
+      "index": 0,
+      "via": "start",
+      "trigger": "<start>",
+      "turn": 0
+    },
+    {
+      "kind": "op",
+      "index": 1,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] )\nhead = t[:i] if not prev else t[:t.index(prev) + len(prev)]\np.write_text(head + '\\n[batch 0000 offloaded]' + t[j:])\nPY",
+      "turn": 1
+    },
+    {
+      "kind": "op",
+      "index": 2,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] txt').write_text(t[i:j])\nhead = t[:t.index(prev) + len(prev)]\np.write_text(head + '\\n[batch 0001 offloaded]' + t[j:])\nPY",
+      "turn": 2
+    },
+    {
+      "kind": "op",
+      "index": 3,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00122>>>\\n%s\\n<<<ANSWER END>>>\\n' 'fathom lattice orbit cobble harbor lattice harbor indigo thist [...] hom lantern zebra lantern falcon zebra russet lattice auburn willow nimbus zebra onyx #8104400c'; echo READY_FOR_NEXT_OP",
+      "turn": 4
+    },
+    {
+      "kind": "op",
+      "index": 4,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00015>>>\\n%s\\n<<<ANSWER END>>>\\n' 'saffron harbor thistle auburn zebra russet marble cedar garnet [...] rble crimson cedar spruce verdant saffron meadow saffron copper fathom spruce mistral #15e1b19b'; echo READY_FOR_NEXT_OP",
+      "turn": 6
+    },
+    {
+      "kind": "op",
+      "index": 5,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00022>>>\\n%s\\n<<<ANSWER END>>>\\n' 'marble cobble marble saffron cinder cobble crimson auburn verd [...] quartz mistral crimson spruce crimson cobalt cinder quartz garnet nimbus orbit indigo #98ad4c42'; echo READY_FOR_NEXT_OP",
+      "turn": 8
+    },
+    {
+      "kind": "op",
+      "index": 6,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00035>>>\\n%s\\n<<<ANSWER END>>>\\n' 'crimson falcon harbor trellis lantern onyx cobalt marble ember [...] ow cobble boulder fathom saffron onyx russet russet falcon garnet willow auburn cedar #8947acc9'; echo READY_FOR_NEXT_OP",
+      "turn": 10
+    },
+    {
+      "kind": "op",
+      "index": 7,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00049>>>\\n%s\\n<<<ANSWER END>>>\\n' 'meadow cobalt cobalt cobalt cinder thistle lattice quartz orbi [...] copper cinder orbit boulder trellis copper thistle fathom pewter willow russet marble #a212d3cf'; echo READY_FOR_NEXT_OP",
+      "turn": 12
+    },
+    {
+      "kind": "op",
+      "index": 8,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00017>>>\\n%s\\n<<<ANSWER END>>>\\n' 'cinder meadow verdant glacier ember trellis fathom trellis ony [...]  quartz cedar onyx auburn nimbus trellis spruce lantern trellis boulder pewter cinder #5182aaa6'; echo READY_FOR_NEXT_OP",
+      "turn": 14
+    },
+    {
+      "kind": "op",
+      "index": 9,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00053>>>\\n%s\\n<<<ANSWER END>>>\\n' 'nimbus quartz auburn mistral marble fathom copper meadow spruc [...]  garnet meadow glacier cinder spruce onyx boulder ember spruce crimson glacier harbor #456bd068'; echo READY_FOR_NEXT_OP",
+      "turn": 16
+    },
+    {
+      "kind": "op",
+      "index": 10,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00025>>>\\n%s\\n<<<ANSWER END>>>\\n' 'copper mistral cinder lattice meadow fathom verdant lantern on [...] ttice garnet willow cinder nimbus kindle saffron mistral russet garnet cinder saffron #4ea7eb17'; echo READY_FOR_NEXT_OP",
+      "turn": 18
+    },
+    {
+      "kind": "op",
+      "index": 11,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00082>>>\\n%s\\n<<<ANSWER END>>>\\n' 'harbor onyx russet russet cedar boulder glacier boulder orbit  [...] ral zebra nimbus onyx nimbus zebra spruce cobble nimbus boulder zebra lantern trellis #0c25673d'; echo READY_FOR_NEXT_OP",
+      "turn": 20
+    },
+    {
+      "kind": "op",
+      "index": 12,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00113>>>\\n%s\\n<<<ANSWER END>>>\\n' 'quartz quartz falcon willow glacier falcon spruce cobble willo [...] llum meadow cobalt spruce fathom saffron lattice garnet cobble glacier lantern cobalt #c3721678'; echo READY_FOR_NEXT_OP",
+      "turn": 22
+    },
+    {
+      "kind": "op",
+      "index": 13,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00102>>>\\n%s\\n<<<ANSWER END>>>\\n' 'onyx trellis russet meadow lattice indigo falcon cobble cedar  [...] is lantern spruce verdant auburn verdant vellum verdant cinder quartz trellis glacier #6e298ba4'; echo READY_FOR_NEXT_OP",
+      "turn": 24
+    },
+    {
+      "kind": "op",
+      "index": 14,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00067>>>\\n%s\\n<<<ANSWER END>>>\\n' 'boulder glacier thistle cobalt glacier boulder trellis vellum  [...]  vellum zebra copper cinder saffron orbit meadow spruce lattice fathom harbor crimson #8d554562'; echo READY_FOR_NEXT_OP",
+      "turn": 26
+    },
+    {
+      "kind": "op",
+      "index": 15,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00031>>>\\n%s\\n<<<ANSWER END>>>\\n' 'harbor lantern onyx vellum russet boulder zebra marble boulder [...] ow marble indigo cedar cinder ember mistral marble willow saffron willow meadow orbit #06ea803c'; echo READY_FOR_NEXT_OP",
+      "turn": 28
+    },
+    {
+      "kind": "op",
+      "index": 16,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00080>>>\\n%s\\n<<<ANSWER END>>>\\n' 'falcon saffron trellis marble trellis boulder pewter cobble gl [...] boulder ember mistral auburn spruce copper willow boulder zebra boulder cobalt copper #4bd0e54e'; echo READY_FOR_NEXT_OP",
+      "turn": 30
+    },
+    {
+      "kind": "op",
+      "index": 17,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00119>>>\\n%s\\n<<<ANSWER END>>>\\n' 'onyx lattice mistral nimbus russet meadow crimson meadow lante [...] a orbit spruce fathom boulder fathom onyx cinder spruce cobalt mistral mistral willow #b5fb9443'; echo READY_FOR_NEXT_OP",
+      "turn": 32
+    },
+    {
+      "kind": "op",
+      "index": 18,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00069>>>\\n%s\\n<<<ANSWER END>>>\\n' 'crimson nimbus cobble kindle auburn ember indigo indigo vellum [...] e cedar ember quartz meadow vellum nimbus vellum cobalt glacier copper meadow mistral #93e36f55'; echo READY_FOR_NEXT_OP",
+      "turn": 34
+    },
+    {
+      "kind": "op",
+      "index": 19,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00101>>>\\n%s\\n<<<ANSWER END>>>\\n' 'copper cobalt glacier auburn lantern boulder onyx auburn cobal [...] burn harbor quartz saffron trellis saffron cobble willow meadow harbor cinder saffron #833babba'; echo READY_FOR_NEXT_OP",
+      "turn": 36
+    },
+    {
+      "kind": "op",
+      "index": 20,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00002>>>\\n%s\\n<<<ANSWER END>>>\\n' 'zebra marble boulder cobalt marble thistle auburn saffron garn [...] opper pewter saffron meadow harbor mistral falcon harbor garnet auburn saffron marble #d3982bcf'; echo READY_FOR_NEXT_OP",
+      "turn": 38
+    },
+    {
+      "kind": "op",
+      "index": 21,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00048>>>\\n%s\\n<<<ANSWER END>>>\\n' 'kindle boulder garnet fathom cinder thistle ember pewter cinde [...] erdant garnet spruce onyx thistle glacier cinder glacier indigo lattice willow russet #948823b5'; echo READY_FOR_NEXT_OP",
+      "turn": 40
+    },
+    {
+      "kind": "op",
+      "index": 22,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00100>>>\\n%s\\n<<<ANSWER END>>>\\n' 'willow auburn willow auburn glacier lattice thistle cobalt lan [...] saffron thistle quartz cobalt nimbus cinder vellum fathom onyx thistle crimson cobalt #9194fe26'; echo READY_FOR_NEXT_OP",
+      "turn": 42
+    },
+    {
+      "kind": "op",
+      "index": 23,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00091>>>\\n%s\\n<<<ANSWER END>>>\\n' 'kindle glacier onyx onyx willow trellis auburn nimbus mistral  [...] arble trellis willow garnet orbit onyx onyx kindle quartz auburn falcon indigo pewter #8715ec4e'; echo READY_FOR_NEXT_OP",
+      "turn": 44
+    },
+    {
+      "kind": "op",
+      "index": 24,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00045>>>\\n%s\\n<<<ANSWER END>>>\\n' 'orbit spruce saffron cedar ember garnet cobalt pewter crimson  [...] uartz pewter meadow pewter pewter marble verdant willow lantern saffron willow quartz #e3625ecb'; echo READY_FOR_NEXT_OP",
+      "turn": 46
+    },
+    {
+      "kind": "op",
+      "index": 25,
+      "via": "ready",
+      "trigger": "printf '<<<ANSWER key=K00061>>>\\n%s\\n<<<ANSWER END>>>\\n' 'lattice thistle kindle ember boulder cobalt harbor saffron vel [...] er cobalt marble vellum copper crimson onyx orbit spruce fathom lattice falcon auburn #a7b05fe8'; echo READY_FOR_NEXT_OP",
+      "turn": 48
+    }
+  ]
+}

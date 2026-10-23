@@ -1,0 +1,72 @@
+<<<ANALYSIS>>>
+## Current Skill's Minimal Winning Loop
+No skill exists (agent runs without SKILL.md). The agent's implicit loop is: (1) read context file, (2) search for filler block markers, (3) attempt deletion via Python script with `echo READY_FOR_NEXT_OP`, (4) repeat until budget exhausted.
+
+## Per-Loss Failure Table
+| Episode | Step | Failure Mode | Structural Cause |
+|---------|------|--------------|------------------|
+| E1 | 2 | ValueError: substring not found | Agent tried to delete block 00001 after deleting 00000, but marker format changed; no state tracking of remaining blocks |
+| E1 | 6 | Out-of-order deletion | Agent deleted chunk 25 (00024) before completing chunks 1-24; no sequential counter maintained |
+| E1 | 36 | ValueError: substring not found | Agent tried to delete 00026 after 00024, but context already exceeded budget; no early termination check |
+| E1 | 3-5 | Wasted turns on debugging | Agent printed context and searched for markers instead of continuing deletion loop |
+| E1 | 39 | Session ended with remaining blocks | Agent hit 31297/32768 tokens without completing all 62 chunks; no budget-aware stopping |
+
+## Derived Lever List
+1. **Sequential state tracking**: Maintain a counter of remaining chunks to delete, not search for markers each turn
+2. **Budget-aware deletion**: Stop when context budget approaches limit, prioritize deleting oldest/earliest chunks first
+3. **Minimal context operations**: Remove all debugging prints and marker searches; use direct index-based deletion
+4. **Order preservation**: Delete chunks in numerical order (00001, 00002, ... 00062) to maintain marker integrity
+
+## Lever Summary
+- Accuracy lever: Sequential state tracking (E1 step 2 failure)
+- Cost lever: Budget-aware early termination (E1 step 38/39 failure)
+- Both levers: Minimal context operations (E1 steps 3-5 wasted turns)
+<<<END>>>
+
+<<<SKILL name=sequential-counter-deletion>>>>
+---
+name: sequential-counter-deletion
+description: Maintain a remaining-chunk counter and delete in order; targets E1 step 2 ValueError where marker not found due to missing state; predicted: +accuracy (complete all 62 chunks), -cost (no wasted debugging turns)
+---
+# Working discipline (each rule fires on its trigger; no standing ritual)
+
+1. On first turn: read context file, extract all chunk headers matching `=== chunk N/62`, parse N values, set `remaining = max(N values) - current_chunk + 1`, initialize `current_chunk = 1`
+2. Each turn: if `remaining <= 0` stop and submit final output; else compute target filler block as `<<<FILLER-BLOCK 000{current_chunk-1}#<hash> START`
+3. Execute deletion script that: (a) finds START marker, (b) finds END marker, (c) writes head + t[k:i] + '[deleted]' + tail, (d) appends `echo READY_FOR_NEXT_OP` as standalone final statement
+4. Never print context, never search for markers with grep/re, never debug-print; only output the deletion result
+5. After each successful deletion: increment `current_chunk`, decrement `remaining`; if `remaining == 0` break loop immediately
+6. If deletion fails (ValueError), retry once with `current_chunk + 1` then stop to avoid budget exhaustion
+7. Final turn: if `remaining > 0` and budget near limit (31000/32768), delete only up to chunk where budget allows, then submit
+<<<END>>>
+
+<<<SKILL name=budget-aware-sequential>>>>
+---
+name: budget-aware-sequential
+description: Delete chunks sequentially while tracking token budget; targets E1 step 38/39 where agent hit budget with remaining blocks; predicted: -cost (stop early when budget critical), +accuracy (complete more chunks before timeout)
+---
+# Working discipline (each rule fires on its trigger; no standing ritual)
+
+1. On first turn: read context file, count total filler blocks via regex `<<<FILLER-BLOCK (\d+)`, set `total_chunks = count`, set `current_chunk = 1`
+2. Each turn: estimate tokens per chunk from first deletion (measure head+tail size), compute `max_chunks_remaining = (32768 - current_context_tokens) / avg_chunk_tokens`
+3. If `current_chunk > max_chunks_remaining` AND `current_chunk < total_chunks`: delete only up to `max_chunks_remaining` chunks, then submit immediately
+4. Deletion script must: (a) find exact START/END markers for current chunk, (b) preserve all non-filler content, (c) append `echo READY_FOR_NEXT_OP` as standalone final statement
+5. Never run grep, never print context, never search for markers with regex; use direct string index operations
+6. After each deletion: increment `current_chunk`, update `current_context_tokens` from file size
+7. If `current_chunk == total_chunks` or budget exhausted: submit final output without waiting for READY_FOR_NEXT_OP
+<<<END>>>
+
+<<<SKILL name=minimal-direct-deletion>>>>
+---
+name: minimal-direct-deletion
+description: Direct index-based deletion without marker search or debugging; targets E1 steps 3-5 where agent wasted turns on prints; predicted: -cost (fewer turns), +accuracy (no failed searches)
+---
+# Working discipline (each rule fires on its trigger; no standing ritual)
+
+1. On first turn: read context file, find all `=== chunk N/62` headers, extract N values, sort ascending, set `chunk_list = sorted(N values)`
+2. Each turn: if `len(chunk_list) == 0` stop and submit; else `target_chunk = chunk_list[0]`, remove from list
+3. Deletion script: (a) find `=== chunk {target_chunk}/62` position, (b) find next `=== chunk {target_chunk+1}/62` or END, (c) extract and write head + filler-deletion + tail, (d) append `echo READY_FOR_NEXT_OP` as standalone final statement
+4. Never search for `<<<FILLER-BLOCK` markers; use chunk header positions directly
+5. Never print context, never grep, never debug-print; only output deletion result
+6. If deletion fails: skip to next chunk in list, do not retry same chunk
+7. Final turn: submit output regardless of remaining chunks if budget exhausted
+<<<END>>>

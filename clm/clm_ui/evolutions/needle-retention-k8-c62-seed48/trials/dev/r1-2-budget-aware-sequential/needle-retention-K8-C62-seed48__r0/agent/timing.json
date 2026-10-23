@@ -1,0 +1,273 @@
+[
+  {
+    "step": 1,
+    "llm_s": 15.4,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "cat /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "step": 2,
+    "llm_s": 11.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00000'\nh = '=== chunk 1/62 (61 op(s) remaining af"
+  },
+  {
+    "step": 3,
+    "llm_s": 11.4,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00001'\nh = '=== chunk 2/62 (60 op(s) remaining af"
+  },
+  {
+    "step": 4,
+    "llm_s": 40.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00002'\nh = '=== chunk 3/62 (59 op(s) remaining af"
+  },
+  {
+    "step": 5,
+    "llm_s": 36.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00003'\nh = '=== chunk 4/62 (58 op(s) remaining af"
+  },
+  {
+    "step": 6,
+    "llm_s": 15.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00004'\nh = '=== chunk 5/62 (57 op(s) remaining af"
+  },
+  {
+    "step": 7,
+    "llm_s": 25.8,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00005'\nh = '=== chunk 6/62 (56 op(s) remaining af"
+  },
+  {
+    "step": 8,
+    "llm_s": 14.5,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00006'\nh = '=== chunk 7/62 (55 op(s) remaining af"
+  },
+  {
+    "step": 9,
+    "llm_s": 15.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00007'\nh = '=== chunk 8/62 (54 op(s) remaining af"
+  },
+  {
+    "step": 10,
+    "llm_s": 38.1,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00008'\nh = '=== chunk 9/62 (53 op(s) remaining af"
+  },
+  {
+    "step": 11,
+    "llm_s": 10.6,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00009'\nh = '=== chunk 10/62 (52 op(s) remaining a"
+  },
+  {
+    "step": 12,
+    "llm_s": 16.4,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00010'\nh = '=== chunk 11/62 (51 op(s) remaining a"
+  },
+  {
+    "step": 13,
+    "llm_s": 19.1,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00011'\nh = '=== chunk 12/62 (50 op(s) remaining a"
+  },
+  {
+    "step": 14,
+    "llm_s": 10.4,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00012'\nh = '=== chunk 13/62 (49 op(s) remaining a"
+  },
+  {
+    "step": 15,
+    "llm_s": 8.6,
+    "bash_s": 1.2,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00013'\nh = '=== chunk 15/62 (47 op(s) remaining a"
+  },
+  {
+    "step": 16,
+    "llm_s": 9.7,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00013'\nh = '=== chunk 15/62 (47 op(s) remaining a"
+  },
+  {
+    "step": 17,
+    "llm_s": 7.5,
+    "bash_s": 1.1,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00014'\nh = '=== chunk 16/62 (45 op(s) remaining a"
+  },
+  {
+    "step": 18,
+    "llm_s": 36.5,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00014'\nh = '=== chunk 16/62 (45 op(s) remaining a"
+  },
+  {
+    "step": 19,
+    "llm_s": 14.8,
+    "bash_s": 2.2,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00015'\nh = '=== chunk 17/62 (44 op(s) remaining a"
+  },
+  {
+    "step": 20,
+    "llm_s": 32.7,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Search for the exact marker as it appears in the context\nif '<<<FILLER-BLOCK 00015' in t:\n    p"
+  },
+  {
+    "step": 21,
+    "llm_s": 13.0,
+    "bash_s": 1.8,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Find the exact marker with hash\nlines = t.split('\\n')\nfor i, line in enumerate(lines):\n    if '"
+  },
+  {
+    "step": 22,
+    "llm_s": 8.5,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Check for previous placeholder\nprev_options = [\n    '[filler 00013 deleted]',\n    '[filler 0001"
+  },
+  {
+    "step": 23,
+    "llm_s": 14.0,
+    "bash_s": 1.2,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00015'\nh = '=== chunk 17/62 (43 op(s) remaining a"
+  },
+  {
+    "step": 24,
+    "llm_s": 7.8,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Find the chunk header\nfor i, line in enumerate(t.split('\\n')):\n    if 'chunk 16' in line or 'ch"
+  },
+  {
+    "step": 25,
+    "llm_s": 13.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\n# Find the chunk header\nfor i, line in enumerate(t.split('\\n')):\n    if '=== chunk' in line:\n    "
+  },
+  {
+    "step": 26,
+    "llm_s": 21.5,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.read_text()\nlines = t.split('\\n')\nfor i, line in enumerate(lines):\n    if '=== chunk' in line:\n        print("
+  },
+  {
+    "step": 27,
+    "llm_s": 17.1,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00015'\nh = '=== chunk 16/62 (44 op(s) remaining a"
+  },
+  {
+    "step": 28,
+    "llm_s": 54.2,
+    "bash_s": 1.5,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00016'\nh = '=== chunk 18/62 (44 op(s) remaining a"
+  },
+  {
+    "step": 29,
+    "budget_final_turn": true,
+    "tokens": 33385
+  },
+  {
+    "step": 29,
+    "llm_s": 34.4,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.read_text()\na = '<<<FILLER-BLOCK 00016'\nh = '=== chunk 17/62 (45 op(s) remaining a"
+  },
+  {
+    "step": 30,
+    "budget_stop": true,
+    "tokens": 35456
+  }
+]

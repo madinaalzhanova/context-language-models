@@ -1,0 +1,12 @@
+{
+  "prompt_tokens": 331886,
+  "completion_tokens": 6101,
+  "n_llm_calls": 26,
+  "n_commands": 26,
+  "n_turns": 26,
+  "peak_context_tokens": 15319,
+  "wall_s": 252.8,
+  "terminated_by": "stream_exhausted",
+  "budget": 32768,
+  "reserve": 2048
+}

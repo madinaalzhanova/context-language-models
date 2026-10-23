@@ -1,0 +1,436 @@
+{
+  "n_ops_delivered": 60,
+  "n_ops_total": 62,
+  "terminated_by": "budget_wall",
+  "n_refusals": 0,
+  "n_explains": 0,
+  "stream": {
+    "count": 62,
+    "sha256": "59edf73ead83eae3249793642d3cef1422e7d9d3881107e65dfec8135ca8054e",
+    "verified": true,
+    "path": "/app/stream/chunks.jsonl",
+    "removed": true
+  },
+  "log": [
+    {
+      "kind": "op",
+      "index": 0,
+      "via": "start",
+      "trigger": "<start>",
+      "turn": 0
+    },
+    {
+      "kind": "op",
+      "index": 1,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] ND>>>', i) + len('END>>>')\nk = t.index(h)\nhead = t[:k]\np.write_text(head + t[k:i] + '[filler 00000 deleted]' + t[j:])\nPY",
+      "turn": 1
+    },
+    {
+      "kind": "op",
+      "index": 2,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00001 deleted]' + t[j:])\nPY",
+      "turn": 2
+    },
+    {
+      "kind": "op",
+      "index": 3,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00002 deleted]' + t[j:])\nPY",
+      "turn": 3
+    },
+    {
+      "kind": "op",
+      "index": 4,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00003 deleted]' + t[j:])\nPY",
+      "turn": 4
+    },
+    {
+      "kind": "op",
+      "index": 5,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00004 deleted]' + t[j:])\nPY",
+      "turn": 5
+    },
+    {
+      "kind": "op",
+      "index": 6,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00005 deleted]' + t[j:])\nPY",
+      "turn": 6
+    },
+    {
+      "kind": "op",
+      "index": 7,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00006 deleted]' + t[j:])\nPY",
+      "turn": 7
+    },
+    {
+      "kind": "op",
+      "index": 8,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00007 deleted]' + t[j:])\nPY",
+      "turn": 8
+    },
+    {
+      "kind": "op",
+      "index": 9,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00008 deleted]' + t[j:])\nPY",
+      "turn": 9
+    },
+    {
+      "kind": "op",
+      "index": 10,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00009 deleted]' + t[j:])\nPY",
+      "turn": 10
+    },
+    {
+      "kind": "op",
+      "index": 11,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00010 deleted]' + t[j:])\nPY",
+      "turn": 11
+    },
+    {
+      "kind": "op",
+      "index": 12,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00011 deleted]' + t[j:])\nPY",
+      "turn": 12
+    },
+    {
+      "kind": "op",
+      "index": 13,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00012 deleted]' + t[j:])\nPY",
+      "turn": 13
+    },
+    {
+      "kind": "op",
+      "index": 14,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00013 deleted]' + t[j:])\nPY",
+      "turn": 14
+    },
+    {
+      "kind": "op",
+      "index": 15,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00014 deleted]' + t[j:])\nPY",
+      "turn": 15
+    },
+    {
+      "kind": "op",
+      "index": 16,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00015 deleted]' + t[j:])\nPY",
+      "turn": 16
+    },
+    {
+      "kind": "op",
+      "index": 17,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00016 deleted]' + t[j:])\nPY",
+      "turn": 17
+    },
+    {
+      "kind": "op",
+      "index": 18,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00017 deleted]' + t[j:])\nPY",
+      "turn": 18
+    },
+    {
+      "kind": "op",
+      "index": 19,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00018 deleted]' + t[j:])\nPY",
+      "turn": 19
+    },
+    {
+      "kind": "op",
+      "index": 20,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00019 deleted]' + t[j:])\nPY",
+      "turn": 20
+    },
+    {
+      "kind": "op",
+      "index": 21,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00020 deleted]' + t[j:])\nPY",
+      "turn": 21
+    },
+    {
+      "kind": "op",
+      "index": 22,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00021 deleted]' + t[j:])\nPY",
+      "turn": 22
+    },
+    {
+      "kind": "op",
+      "index": 23,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00022 deleted]' + t[j:])\nPY",
+      "turn": 23
+    },
+    {
+      "kind": "op",
+      "index": 24,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00023 deleted]' + t[j:])\nPY",
+      "turn": 24
+    },
+    {
+      "kind": "op",
+      "index": 25,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00024 deleted]' + t[j:])\nPY",
+      "turn": 25
+    },
+    {
+      "kind": "op",
+      "index": 26,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00025 deleted]' + t[j:])\nPY",
+      "turn": 26
+    },
+    {
+      "kind": "op",
+      "index": 27,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00026 deleted]' + t[j:])\nPY",
+      "turn": 27
+    },
+    {
+      "kind": "op",
+      "index": 28,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00027 deleted]' + t[j:])\nPY",
+      "turn": 28
+    },
+    {
+      "kind": "op",
+      "index": 29,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00028 deleted]' + t[j:])\nPY",
+      "turn": 29
+    },
+    {
+      "kind": "op",
+      "index": 30,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00029 deleted]' + t[j:])\nPY",
+      "turn": 30
+    },
+    {
+      "kind": "op",
+      "index": 31,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00030 deleted]' + t[j:])\nPY",
+      "turn": 31
+    },
+    {
+      "kind": "op",
+      "index": 32,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00031 deleted]' + t[j:])\nPY",
+      "turn": 32
+    },
+    {
+      "kind": "op",
+      "index": 33,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00032 deleted]' + t[j:])\nPY",
+      "turn": 33
+    },
+    {
+      "kind": "op",
+      "index": 34,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00033 deleted]' + t[j:])\nPY",
+      "turn": 34
+    },
+    {
+      "kind": "op",
+      "index": 35,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00034 deleted]' + t[j:])\nPY",
+      "turn": 35
+    },
+    {
+      "kind": "op",
+      "index": 36,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00035 deleted]' + t[j:])\nPY",
+      "turn": 36
+    },
+    {
+      "kind": "op",
+      "index": 37,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00036 deleted]' + t[j:])\nPY",
+      "turn": 37
+    },
+    {
+      "kind": "op",
+      "index": 38,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00037 deleted]' + t[j:])\nPY",
+      "turn": 38
+    },
+    {
+      "kind": "op",
+      "index": 39,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00038 deleted]' + t[j:])\nPY",
+      "turn": 39
+    },
+    {
+      "kind": "op",
+      "index": 40,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00039 deleted]' + t[j:])\nPY",
+      "turn": 40
+    },
+    {
+      "kind": "op",
+      "index": 41,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00040 deleted]' + t[j:])\nPY",
+      "turn": 41
+    },
+    {
+      "kind": "op",
+      "index": 42,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00041 deleted]' + t[j:])\nPY",
+      "turn": 42
+    },
+    {
+      "kind": "op",
+      "index": 43,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00042 deleted]' + t[j:])\nPY",
+      "turn": 43
+    },
+    {
+      "kind": "op",
+      "index": 44,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00043 deleted]' + t[j:])\nPY",
+      "turn": 44
+    },
+    {
+      "kind": "op",
+      "index": 45,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00044 deleted]' + t[j:])\nPY",
+      "turn": 45
+    },
+    {
+      "kind": "op",
+      "index": 46,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00045 deleted]' + t[j:])\nPY",
+      "turn": 46
+    },
+    {
+      "kind": "op",
+      "index": 47,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00046 deleted]' + t[j:])\nPY",
+      "turn": 47
+    },
+    {
+      "kind": "op",
+      "index": 48,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00047 deleted]' + t[j:])\nPY",
+      "turn": 48
+    },
+    {
+      "kind": "op",
+      "index": 49,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00048 deleted]' + t[j:])\nPY",
+      "turn": 49
+    },
+    {
+      "kind": "op",
+      "index": 50,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00049 deleted]' + t[j:])\nPY",
+      "turn": 50
+    },
+    {
+      "kind": "op",
+      "index": 51,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00050 deleted]' + t[j:])\nPY",
+      "turn": 51
+    },
+    {
+      "kind": "op",
+      "index": 52,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00051 deleted]' + t[j:])\nPY",
+      "turn": 52
+    },
+    {
+      "kind": "op",
+      "index": 53,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00052 deleted]' + t[j:])\nPY",
+      "turn": 53
+    },
+    {
+      "kind": "op",
+      "index": 54,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00053 deleted]' + t[j:])\nPY",
+      "turn": 54
+    },
+    {
+      "kind": "op",
+      "index": 55,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00054 deleted]' + t[j:])\nPY",
+      "turn": 55
+    },
+    {
+      "kind": "op",
+      "index": 56,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00055 deleted]' + t[j:])\nPY",
+      "turn": 56
+    },
+    {
+      "kind": "op",
+      "index": 57,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00056 deleted]' + t[j:])\nPY",
+      "turn": 57
+    },
+    {
+      "kind": "op",
+      "index": 58,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt'); t = p.re [...] n(prev)] + '\\n' if (prev and prev in t[:k]) else t[:k]\np.write_text(head + t[k:i] + '[filler 00057 deleted]' + t[j:])\nPY",
+      "turn": 58
+    },
+    {
+      "kind": "op",
+      "index": 59,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...] i] + '[filler 000' + block_num + ' deleted]'\n    prev = '[filler 000' + block_num + ' deleted]'\n\np.write_text(result)\nPY",
+      "turn": 59
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "kv-store-R130-seed42__r0",
+  "reason": "completed",
+  "terminated_by": "stream_exhausted",
+  "rewards": {
+    "reward": 1.0,
+    "reward_attempted": 1.0,
+    "n_answered": 24.0,
+    "matched": 24.0,
+    "total": 24.0,
+    "n_snapshots": 27.0,
+    "grader_valid": 1.0,
+    "agent_peak_tokens": 15319.0,
+    "agent_mean_tokens": 11501.25925925926,
+    "graded_from_code": 3,
+    "terminated_by_code": 1,
+    "n_ops_delivered": 26,
+    "n_ops_total": 26,
+    "n_refusals": 0,
+    "single_guess": 1.0,
+    "single_guess_matched": 24.0,
+    "n_multi_guess": 0.0
+  },
+  "started_at": "2026-10-23T09:37:01",
+  "finished_at": "2026-10-23T09:41:25",
+  "duration_s": 264.1,
+  "usage": {
+    "prompt_tokens": 331886,
+    "completion_tokens": 6101,
+    "n_llm_calls": 26,
+    "n_commands": 26,
+    "n_turns": 26,
+    "peak_context_tokens": 15319,
+    "wall_s": 252.8,
+    "terminated_by": "stream_exhausted",
+    "budget": 32768,
+    "reserve": 2048
+  }
+}

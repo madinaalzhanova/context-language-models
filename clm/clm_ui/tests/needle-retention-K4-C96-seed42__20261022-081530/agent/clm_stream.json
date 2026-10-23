@@ -1,0 +1,28 @@
+{
+  "skill": "clm",
+  "kwargs": {
+    "context_budget_tokens": 32768,
+    "context_budget_reserve_tokens": 2048,
+    "max_steps": 100000,
+    "lm_call_cap": 0,
+    "max_tokens": 8192,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "observation_max_chars": 50000,
+    "nudge_ratios": "",
+    "persistent_nudge_ratio": null,
+    "finalize_nudge_turns": 0,
+    "max_num_retry_on_limit": 0,
+    "allow_edit_growth": "fit",
+    "ctx_hint": "default",
+    "finish_policy": "submit",
+    "enable_thinking": true,
+    "send_chat_template_kwargs": false,
+    "cost_metric": "usd",
+    "model_name": "openrouter/qwen/qwen3.5-9b",
+    "skill_dirs": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\tests\\needle-retention-K4-C96-seed42__20261022-081530\\skill"
+  },
+  "skill_path": "C:\\Users\\PC_7389_GD26\\Desktop\\ContextBench\\clm_exp\\skills\\clm\\needle_retention.md",
+  "skill_sha16": "e834d24bf004c7ae",
+  "instruction_sha16": "f264bf33321a769e"
+}

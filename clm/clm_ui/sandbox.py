@@ -36,6 +36,12 @@ MAX_READ_BYTES = 2_000_000
 #: The folder ContextBench's CLM method skills (clm_exp/skills/clm/kv_store.md,
 #: log_triage.md) tell the agent to offload context into. Nothing creates it but the agent.
 OFFLOAD_DIR = "/tmp/ctx_offload"
+#: Daytona stops (and so deletes: Harbor deletes a sandbox on stop) a sandbox after this
+#: many minutes without activity. A safety net for sandboxes whose process was killed
+#: before it could delete them; 0 turns it off. ``clm-ui --sandbox-idle-mins`` sets it,
+#: for the episode processes too, through this variable.
+IDLE_MINS_ENV = "CLM_UI_SANDBOX_IDLE_MINS"
+DEFAULT_IDLE_MINS = 30
 #: find -printf fields after the root: type, size, mtime, path (find expands the escapes).
 _FIND_FORMAT = r"\t%y\t%s\t%T@\t%p\n"
 
@@ -94,6 +100,14 @@ class Sandbox:
         raise NotImplementedError
 
     async def download_file(self, source_path: str, target_path: str | Path) -> None:
+        raise NotImplementedError
+
+    async def upload_dir(self, source_dir: str | Path, target_dir: str) -> None:
+        """Used to mount a steering skill's folder (clm_harness.utils.skills.SkillMount)."""
+        raise NotImplementedError
+
+    async def download_dir(self, source_dir: str, target_dir: str | Path) -> None:
+        """Copy a folder to the host, to keep it once the sandbox is deleted."""
         raise NotImplementedError
 
     async def list_tree(self, root: str) -> list[dict[str, Any]]:
@@ -260,12 +274,17 @@ class HarborSandbox(ShellSandbox):
             env_dir.mkdir(parents=True, exist_ok=True)
             config = EnvironmentConfig(**{**CHAT_ENV, **({"docker_image": image} if image else {})})
         self.workspace = config.workdir or "/workspace"
+        self._stopped = False
+        extra: dict[str, Any] = {}
+        if kind == "daytona":
+            extra["auto_stop_interval_mins"] = int(os.environ.get(IDLE_MINS_ENV,
+                                                                  DEFAULT_IDLE_MINS))
         self.env = EnvironmentFactory.create_environment(
             type=EnvironmentType(kind), environment_dir=env_dir,
             environment_name=task.name if task is not None else "clm-ui",
             session_id=name or f"clm-ui-{uuid.uuid4().hex[:8]}",
             trial_paths=TrialPaths(session_dir / "harbor" / "trial"),
-            task_env_config=config)
+            task_env_config=config, **extra)
 
     @property
     def task_env_config(self) -> Any:
@@ -285,7 +304,15 @@ class HarborSandbox(ShellSandbox):
         await self.env.start(force_build=False)
 
     async def stop(self) -> None:
+        """Delete the sandbox. Safe to call again: only the first call deletes."""
+        if self._stopped:
+            return
+        self._stopped = True
         await self.env.stop(delete=True)
+
+    @property
+    def stopped(self) -> bool:
+        return self._stopped
 
     async def _sh(self, command: str, timeout: float | None) -> ExecResult:
         return await self.env.exec(command=command, timeout_sec=int(timeout) if timeout else None)
@@ -296,8 +323,14 @@ class HarborSandbox(ShellSandbox):
     async def upload_file(self, source_path: str | Path, target_path: str) -> None:
         await self.env.upload_file(source_path, target_path)
 
+    async def upload_dir(self, source_dir: str | Path, target_dir: str) -> None:
+        await self.env.upload_dir(source_dir, target_dir)
+
     async def download_file(self, source_path: str, target_path: str | Path) -> None:
         await self.env.download_file(source_path, target_path)
+
+    async def download_dir(self, source_dir: str, target_dir: str | Path) -> None:
+        await self.env.download_dir(source_dir, target_dir)
 
     async def install_tools(self) -> str | None:
         res = await self.env.exec(command=_INSTALL_CURL, timeout_sec=300)

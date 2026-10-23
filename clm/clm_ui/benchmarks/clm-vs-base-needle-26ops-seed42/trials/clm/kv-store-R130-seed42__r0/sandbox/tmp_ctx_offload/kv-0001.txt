@@ -1,0 +1,32 @@
+<<<SET-BATCH 0001#21984b10 BEGIN -- offload this whole block this turn>>>
+SET K00100 = willow auburn willow auburn glacier lattice thistle cobalt lantern trellis vellum lattice saffron thistle quartz cobalt nimbus cinder vellum fathom onyx thistle crimson cobalt #9194fe26
+SET K00101 = copper cobalt glacier auburn lantern boulder onyx auburn cobalt falcon kindle harbor auburn harbor quartz saffron trellis saffron cobble willow meadow harbor cinder saffron #833babba
+SET K00102 = onyx trellis russet meadow lattice indigo falcon cobble cedar garnet thistle quartz trellis lantern spruce verdant auburn verdant vellum verdant cinder quartz trellis glacier #6e298ba4
+SET K00103 = cedar russet glacier nimbus spruce glacier boulder cobble falcon glacier auburn saffron spruce lattice ember cedar mistral nimbus crimson garnet pewter vellum boulder meadow #6f11d5c3
+SET K00104 = onyx cobble quartz trellis falcon indigo willow cinder auburn meadow vellum russet spruce mistral fathom onyx mistral zebra lattice mistral cobalt thistle falcon copper #09d69621
+SET K00105 = harbor zebra spruce verdant cinder thistle lantern thistle indigo marble fathom kindle marble vellum lattice spruce garnet fathom willow copper crimson russet thistle boulder #e542a1a8
+SET K00106 = onyx cobalt ember willow copper trellis verdant garnet pewter kindle russet copper russet thistle vellum vellum glacier meadow trellis zebra ember crimson verdant thistle #ac496726
+SET K00107 = harbor falcon kindle nimbus harbor verdant cinder garnet marble spruce nimbus nimbus cinder spruce crimson cedar vellum cinder auburn lantern pewter pewter saffron meadow #ffac118b
+SET K00108 = thistle mistral nimbus lattice glacier cedar garnet ember indigo cobble kindle glacier auburn spruce ember copper copper garnet nimbus trellis cobalt quartz glacier ember #015e509c
+SET K00109 = falcon trellis ember nimbus lattice willow fathom auburn onyx quartz auburn cinder nimbus cobble mistral nimbus harbor cobble boulder quartz nimbus glacier vellum orbit #0b6fc5f9
+SET K00110 = copper lantern cobble quartz cedar auburn fathom cobble onyx cobble onyx vellum cobble harbor cobalt crimson marble boulder zebra saffron marble mistral boulder harbor #2c05d198
+SET K00111 = garnet cobble fathom ember ember saffron mistral lattice mistral zebra vellum mistral pewter cinder thistle falcon trellis zebra vellum indigo copper cobalt vellum ember #a492077e
+SET K00112 = falcon pewter copper cinder harbor quartz pewter pewter orbit copper mistral saffron mistral harbor glacier boulder boulder saffron fathom thistle quartz onyx orbit saffron #24f8d83b
+SET K00113 = quartz quartz falcon willow glacier falcon spruce cobble willow saffron onyx auburn vellum meadow cobalt spruce fathom saffron lattice garnet cobble glacier lantern cobalt #c3721678
+SET K00114 = garnet copper meadow mistral spruce pewter cinder pewter cobble saffron glacier boulder verdant quartz cobble verdant orbit zebra thistle garnet crimson ember harbor vellum #d17464a7
+SET K00115 = garnet lantern cinder cedar quartz trellis harbor saffron cobalt lattice indigo cobalt lattice harbor orbit spruce trellis marble cinder cobalt thistle lantern pewter russet #93f34709
+SET K00116 = meadow quartz marble kindle vellum lantern lantern verdant ember cinder quartz russet meadow marble auburn cobalt thistle thistle glacier lattice trellis quartz auburn quartz #d4dac878
+SET K00117 = willow meadow kindle lantern harbor vellum copper pewter willow onyx vellum pewter cobalt thistle quartz ember auburn copper cinder glacier quartz falcon saffron cobalt #3cd500a4
+SET K00118 = falcon boulder crimson trellis pewter kindle fathom cedar spruce boulder orbit falcon cobble auburn ember falcon cobble meadow kindle lantern lattice glacier quartz auburn #d9844c2c
+SET K00119 = onyx lattice mistral nimbus russet meadow crimson meadow lantern indigo pewter zebra orbit spruce fathom boulder fathom onyx cinder spruce cobalt mistral mistral willow #b5fb9443
+SET K00120 = saffron cobalt trellis cobalt fathom pewter willow mistral glacier spruce meadow trellis cinder falcon orbit falcon cobalt cinder ember garnet orbit trellis nimbus ember #47ef7baf
+SET K00121 = lantern quartz lantern harbor cobble copper kindle kindle indigo harbor lattice quartz saffron ember crimson verdant cinder saffron kindle meadow indigo meadow cobble garnet #e357b22b
+SET K00122 = fathom lattice orbit cobble harbor lattice harbor indigo thistle ember marble fathom lantern zebra lantern falcon zebra russet lattice auburn willow nimbus zebra onyx #8104400c
+SET K00123 = marble glacier falcon onyx glacier saffron meadow lattice ember fathom orbit nimbus marble kindle zebra spruce meadow garnet boulder trellis glacier cobalt garnet lantern #4f538292
+SET K00124 = lattice cedar boulder trellis falcon garnet lattice cobble cedar mistral falcon willow lantern onyx crimson marble mistral copper lantern verdant lantern auburn trellis thistle #9eb54e83
+SET K00125 = pewter kindle falcon onyx cobble orbit willow saffron cobalt zebra marble kindle onyx lattice garnet cobalt thistle fathom quartz spruce meadow orbit cinder quartz #f94b2865
+SET K00126 = falcon boulder indigo glacier spruce glacier glacier vellum saffron marble meadow cedar quartz thistle willow thistle harbor vellum garnet glacier onyx ember mistral copper #364f8051
+SET K00127 = pewter vellum trellis garnet indigo ember cobalt harbor trellis zebra pewter glacier willow cobalt falcon copper spruce fathom orbit trellis indigo nimbus crimson spruce #310b9354
+SET K00128 = vellum falcon thistle garnet thistle quartz ember lantern orbit marble quartz cedar spruce lattice cobalt indigo meadow crimson meadow cedar vellum quartz cobalt verdant #963a0d31
+SET K00129 = ember zebra garnet orbit harbor cinder spruce cobble crimson auburn cinder nimbus copper pewter nimbus saffron saffron vellum willow zebra falcon boulder cobble onyx #e5a4ec99
+<<<SET-BATCH 0001#21984b10 END>>>

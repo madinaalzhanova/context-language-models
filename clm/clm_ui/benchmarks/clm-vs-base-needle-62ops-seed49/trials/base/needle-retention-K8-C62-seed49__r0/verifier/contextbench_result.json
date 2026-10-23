@@ -1,0 +1,30 @@
+{
+  "rewards": {
+    "reward": 0.11290322580645161,
+    "matched": 56.0,
+    "total": 496.0,
+    "mode": "final_context",
+    "n_snapshots": 8.0,
+    "graded_from": "snapshots",
+    "grader_valid": 1.0,
+    "agent_peak_tokens": 31707.0,
+    "agent_mean_tokens": 20417.375
+  },
+  "graded_from": "snapshots",
+  "terminated_by": "budget_wall",
+  "agent_dir": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\benchmarks\\clm-vs-base-needle-62ops-seed49\\trials\\base\\needle-retention-K8-C62-seed49__r0\\agent",
+  "stream": {
+    "n_ops_delivered": 7,
+    "n_ops_total": 62,
+    "terminated_by": "budget_wall",
+    "n_refusals": 0,
+    "n_explains": 0,
+    "stream": {
+      "count": 62,
+      "sha256": "a79699f1fb73a4b12937434bfa4a771004f76b3f20270cc5e078d6a780e5db1a",
+      "verified": true,
+      "path": "/app/stream/chunks.jsonl",
+      "removed": true
+    }
+  }
+}

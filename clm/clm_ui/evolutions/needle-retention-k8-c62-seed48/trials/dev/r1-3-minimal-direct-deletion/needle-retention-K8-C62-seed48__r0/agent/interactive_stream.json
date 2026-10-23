@@ -1,0 +1,58 @@
+{
+  "n_ops_delivered": 6,
+  "n_ops_total": 62,
+  "terminated_by": "budget_wall",
+  "n_refusals": 0,
+  "n_explains": 0,
+  "stream": {
+    "count": 62,
+    "sha256": "59edf73ead83eae3249793642d3cef1422e7d9d3881107e65dfec8135ca8054e",
+    "verified": true,
+    "path": "/app/stream/chunks.jsonl",
+    "removed": true
+  },
+  "log": [
+    {
+      "kind": "op",
+      "index": 0,
+      "via": "start",
+      "trigger": "<start>",
+      "turn": 0
+    },
+    {
+      "kind": "op",
+      "index": 1,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  Keep everything before START + everything after END (removes filler)\nnew_text = t[:i] + t[j:]\np.write_text(new_text)\nPY",
+      "turn": 1
+    },
+    {
+      "kind": "op",
+      "index": 2,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  Keep everything before START + everything after END (removes filler)\nnew_text = t[:i] + t[j:]\np.write_text(new_text)\nPY",
+      "turn": 2
+    },
+    {
+      "kind": "op",
+      "index": 3,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  Keep everything before START + everything after END (removes filler)\nnew_text = t[:i] + t[j:]\np.write_text(new_text)\nPY",
+      "turn": 3
+    },
+    {
+      "kind": "op",
+      "index": 4,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  Keep everything before START + everything after END (removes filler)\nnew_text = t[:i] + t[j:]\np.write_text(new_text)\nPY",
+      "turn": 4
+    },
+    {
+      "kind": "op",
+      "index": 5,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  Keep everything before START + everything after END (removes filler)\nnew_text = t[:i] + t[j:]\np.write_text(new_text)\nPY",
+      "turn": 5
+    }
+  ]
+}

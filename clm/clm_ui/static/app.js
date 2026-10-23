@@ -58,15 +58,23 @@ const send = (obj) => ws && ws.readyState === 1 && ws.send(JSON.stringify(obj));
 // ------------------------------------------------------------------ events
 const H = {
   reset() { resetUI(); },
-  no_session() { resetUI(); openDialog(); },
+  // No session yet: the page waits. New session, Benchmark and Evolution start things.
+  no_session() { resetUI(); },
 
   session(ev) {
     S.session = ev; S.mode = ev.config.mode; S.ctx.path = ev.ctx_file;
     const c = ev.config;
+    const steer = ev.steering ? `steered: ${ev.steering.id}` : "zero-shot";
     $("session-info").textContent = (c.mode === "task"
-      ? `ContextBench task ${ev.task} · ${ev.model} · paper settings`
-      : `chat · ${ev.model} · budget ${fmt(c.context_budget_tokens)} · gate ${c.allow_edit_growth}`) +
+      ? `ContextBench task ${ev.task} · ${c.agent === "baseline" ? "base model, no CLM" : "CLM"} · ${ev.model} · method ${c.skill} · ${steer}`
+      : `chat · ${ev.model} · ${steer} · budget ${fmt(c.context_budget_tokens)} · gate ${c.allow_edit_growth}`) +
       ` · ${ev.sandbox} sandbox · ${ev.dir}`;
+    if (ev.steering) {
+      const n = chat("system", "", null);
+      n.append(h("details", {}, h("summary", { text: `Steered by skill ${ev.steering.id} ` +
+        `(${fmt(ev.steering.text.length)} chars, appended to the system prompt)` }),
+        h("pre", { class: "prefix-text", text: ev.steering.text })));
+    }
     $("banner").hidden = !ev.warning; $("banner").textContent = ev.warning || "";
     $("btn-stop").disabled = false;
     $("chat-hint").textContent = c.mode === "task"
@@ -574,7 +582,9 @@ function drawViewer(scroll) {
       `${editable.length} turns, ${fmt(editable.reduce((a, t) => a + t.tokens, 0))} tokens, one [[CTX_TURN i role=…]] block per message. ` +
       "Not in the file, pinned by the harness:",
       pinned.length ? pinned.map((t) => h("button", { class: "ghost small", onclick: () => openPrefix(t.index === 0 ? "system" : t.index === 1 ? "task" : "ledger") },
-        `${t.label} · ${fmt(t.tokens)} tok`)) : " system prompt, task"),
+        `${t.label} · ${fmt(t.tokens)} tok`)) : " system prompt, task",
+      S.session?.steering ? h("button", { class: "ghost small", onclick: () => openPrefix("skill"),
+        title: "The steering skill, at the end of the system prompt" }, "skill") : null),
     status,
     !preview && ctx.summary ? h("div", {}, ctx.summary) : null,
     h("div", { class: "legend-line" },
@@ -613,6 +623,7 @@ function drawViewer(scroll) {
 }
 
 function prefixText(which) {
+  if (which === "skill") return S.session?.steering?.text || "";
   if (which === "ledger") {
     const t = S.ctxTurns.find((x) => x.label === "rollback ledger");
     return t ? t.preview : "";
@@ -644,10 +655,30 @@ async function openDialog() {
     if (!saved.model || saved.model === "mock" || !saved.model.includes("/")) delete saved.model;
     Object.assign(cfg, saved);
   } catch {}
-  for (const el of form.elements) if (el.name && cfg[el.name] != null && el.name !== "task") el.value = cfg[el.name];
+  // task and steering are <select>s filled from the server below; set them after.
+  for (const el of form.elements) if (el.name && cfg[el.name] != null && !["task", "steering"].includes(el.name)) el.value = cfg[el.name];
   modeHint();
   $("dlg").showModal();
   // Catalogs load after the dialog opens: OpenRouter's list takes a moment.
+  try {
+    const k = await (await fetch("/api/skills")).json();
+    SKILLS = k.skills || [];
+    const evo = SKILLS.filter((x) => x.id.startsWith("evo:")), lib = SKILLS.filter((x) => x.id.startsWith("lib:"));
+    const cb = SKILLS.filter((x) => x.id.startsWith("cb:"));
+    $("steering-select").replaceChildren(
+      h("option", { value: "", text: "none: no steering skill" }),
+      lib.length ? h("optgroup", { label: `your skills (${k.skills_dir || "skills/"})` },
+        lib.map((x) => h("option", { value: x.id, text: x.label }))) : null,
+      evo.length ? h("optgroup", { label: "evolved (clm_icl runs)" },
+        evo.map((x) => h("option", { value: x.id, text: x.label }))) : null,
+      cb.length ? h("optgroup", { label: "ContextBench method texts (use with Method skill = none)" },
+        cb.map((x) => h("option", { value: x.id, text: x.label }))) : null,
+      h("option", { value: "custom", text: "custom: write the skill text here" }));
+    const want = cfg.steering || "";
+    $("steering-select").value = want === "custom" || SKILLS.some((x) => x.id === want) ? want : "";
+    STEER_DIR = k.skills_dir;
+    steeringHint();
+  } catch {}
   try {
     const t = await (await fetch("/api/tasks")).json();
     TASKS = t.tasks || [];
@@ -696,6 +727,34 @@ function modeHint() {
 $("cfg-form").elements.mode.addEventListener("change", modeHint);
 $("cfg-form").elements.model.addEventListener("input", modelHint);
 $("task-select").addEventListener("change", taskHint);
+
+let SKILLS = [], STEER_DIR = null;
+async function steeringHint() {
+  const v = $("steering-select").value, pre = $("steering-preview");
+  $("steering-custom").hidden = v !== "custom";
+  $("cfg-form").elements.steering_text.required = v === "custom";
+  pre.hidden = true;
+  if (!v) {
+    $("steering-hint").textContent = "Zero-shot: no skill text." +
+      (SKILLS.length ? "" : ` To add one, save a skill as ${STEER_DIR || "skills"}/<name>/SKILL.md.`);
+  } else if (v === "custom") {
+    $("steering-hint").textContent = "Saved with the run as skill/SKILL.md.";
+  } else {
+    const twice = v.startsWith("cb:") && $("cfg-form").elements.mode.value === "task" &&
+      $("cfg-form").elements.skill.value === "clm";
+    $("steering-hint").textContent = twice
+      ? "Method skill is clm, so the task instruction already holds ContextBench's method text: " +
+        "set Method skill to none to move it into the system prompt instead of having it twice."
+      : "Appended to the end of the system prompt, as ClmAgent's skill_dirs does:";
+    try {
+      const r = await (await fetch(`/api/skill?id=${encodeURIComponent(v)}`)).json();
+      if ($("steering-select").value === v) { pre.textContent = r.text || r.error; pre.hidden = false; }
+    } catch {}
+  }
+}
+$("steering-select").addEventListener("change", steeringHint);
+$("cfg-form").elements.skill.addEventListener("change", steeringHint);
+$("cfg-form").elements.mode.addEventListener("change", steeringHint);
 $("dlg").addEventListener("close", () => {
   if ($("dlg").returnValue !== "ok") return;
   const f = $("cfg-form"), cfg = {};

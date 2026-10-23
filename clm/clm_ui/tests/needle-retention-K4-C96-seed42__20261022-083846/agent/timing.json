@@ -1,0 +1,1209 @@
+[
+  {
+    "step": 1,
+    "llm_s": 10.3,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00000#d4aff96b START/,/<<<FILLER-BLOCK 00000#d4aff96b END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 1,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00000#d4aff96b START/,/<<<FILLER-BLOCK 00000#d4aff96b END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 1,
+    "llm_s": 4.5,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 2,
+    "llm_s": 6.9,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00001#d5a7f9e8 START/,/<<<FILLER-BLOCK 00001#d5a7f9e8 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 3,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00001#d5a7f9e8 START/,/<<<FILLER-BLOCK 00001#d5a7f9e8 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 2,
+    "llm_s": 3.3,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 3,
+    "llm_s": 8.2,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00002#58483563 START/,/<<<FILLER-BLOCK 00002#58483563 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 5,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00002#58483563 START/,/<<<FILLER-BLOCK 00002#58483563 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 3,
+    "llm_s": 3.7,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 4,
+    "llm_s": 5.9,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00003#46b0ae85 START/,/<<<FILLER-BLOCK 00003#46b0ae85 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 7,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00003#46b0ae85 START/,/<<<FILLER-BLOCK 00003#46b0ae85 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 4,
+    "llm_s": 2.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 5,
+    "llm_s": 25.8,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00004#8e5e04e5 START/,/<<<FILLER-BLOCK 00004#8e5e04e5 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 9,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00004#8e5e04e5 START/,/<<<FILLER-BLOCK 00004#8e5e04e5 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 5,
+    "llm_s": 9.2,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 6,
+    "llm_s": 9.1,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00005#06721c6c START/,/<<<FILLER-BLOCK 00005#06721c6c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 11,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00005#06721c6c START/,/<<<FILLER-BLOCK 00005#06721c6c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 6,
+    "llm_s": 3.9,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 7,
+    "llm_s": 16.9,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00006#9c50bf1f START/,/<<<FILLER-BLOCK 00006#9c50bf1f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 13,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00006#9c50bf1f START/,/<<<FILLER-BLOCK 00006#9c50bf1f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 7,
+    "llm_s": 4.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 8,
+    "llm_s": 7.9,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00007#d232f214 START/,/<<<FILLER-BLOCK 00007#d232f214 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 15,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00007#d232f214 START/,/<<<FILLER-BLOCK 00007#d232f214 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 8,
+    "llm_s": 3.7,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 9,
+    "llm_s": 8.8,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00008#ceb0a21c START/,/<<<FILLER-BLOCK 00008#ceb0a21c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 17,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00008#ceb0a21c START/,/<<<FILLER-BLOCK 00008#ceb0a21c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 9,
+    "llm_s": 4.0,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 10,
+    "llm_s": 7.6,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00009#4bba0d8f START/,/<<<FILLER-BLOCK 00009#4bba0d8f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 19,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00009#4bba0d8f START/,/<<<FILLER-BLOCK 00009#4bba0d8f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 10,
+    "llm_s": 3.7,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 11,
+    "llm_s": 7.4,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00010#4e9914ab START/,/<<<FILLER-BLOCK 00010#4e9914ab END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 21,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00010#4e9914ab START/,/<<<FILLER-BLOCK 00010#4e9914ab END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 11,
+    "llm_s": 2.9,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 12,
+    "llm_s": 10.4,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00011#3f7a7e58 START/,/<<<FILLER-BLOCK 00011#3f7a7e58 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 23,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00011#3f7a7e58 START/,/<<<FILLER-BLOCK 00011#3f7a7e58 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 12,
+    "llm_s": 3.8,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 13,
+    "llm_s": 44.0,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00012#0b0cb32c START/,/<<<FILLER-BLOCK 00012#0b0cb32c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 25,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00012#0b0cb32c START/,/<<<FILLER-BLOCK 00012#0b0cb32c END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 13,
+    "llm_s": 6.2,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 14,
+    "llm_s": 21.0,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00013#b1df7751 START/,/<<<FILLER-BLOCK 00013#b1df7751 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 27,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00013#b1df7751 START/,/<<<FILLER-BLOCK 00013#b1df7751 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 14,
+    "llm_s": 16.2,
+    "bash_s": 2.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 15,
+    "llm_s": 9.5,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00014#23668693 START/,/<<<FILLER-BLOCK 00014#23668693 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 29,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00014#23668693 START/,/<<<FILLER-BLOCK 00014#23668693 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 15,
+    "llm_s": 8.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 16,
+    "llm_s": 11.8,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00015#67273d84 START/,/<<<FILLER-BLOCK 00015#67273d84 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 31,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00015#67273d84 START/,/<<<FILLER-BLOCK 00015#67273d84 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 16,
+    "llm_s": 9.8,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 17,
+    "llm_s": 18.4,
+    "bash_s": 0.9,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00016#16c6eeb3 START/,/<<<FILLER-BLOCK 00016#16c6eeb3 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 33,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00016#16c6eeb3 START/,/<<<FILLER-BLOCK 00016#16c6eeb3 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 17,
+    "llm_s": 8.7,
+    "bash_s": 1.0,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 18,
+    "llm_s": 20.7,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00017#5fb03200 START/,/<<<FILLER-BLOCK 00017#5fb03200 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 35,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00017#5fb03200 START/,/<<<FILLER-BLOCK 00017#5fb03200 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 18,
+    "llm_s": 3.9,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 19,
+    "llm_s": 12.5,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00018#294c1abc START/,/<<<FILLER-BLOCK 00018#294c1abc END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 37,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00018#294c1abc START/,/<<<FILLER-BLOCK 00018#294c1abc END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 19,
+    "llm_s": 4.3,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 20,
+    "llm_s": 41.7,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00019#6711302b START/,/<<<FILLER-BLOCK 00019#6711302b END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 39,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00019#6711302b START/,/<<<FILLER-BLOCK 00019#6711302b END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 20,
+    "llm_s": 10.2,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 21,
+    "llm_s": 16.1,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00020#c02190d3 START/,/<<<FILLER-BLOCK 00020#c02190d3 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 41,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00020#c02190d3 START/,/<<<FILLER-BLOCK 00020#c02190d3 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 21,
+    "llm_s": 3.2,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 22,
+    "llm_s": 16.8,
+    "bash_s": 1.1,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00021#043affb8 START/,/<<<FILLER-BLOCK 00021#043affb8 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 43,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00021#043affb8 START/,/<<<FILLER-BLOCK 00021#043affb8 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 22,
+    "llm_s": 5.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 23,
+    "llm_s": 12.1,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00022#20274d37 START/,/<<<FILLER-BLOCK 00022#20274d37 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 45,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00022#20274d37 START/,/<<<FILLER-BLOCK 00022#20274d37 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 23,
+    "llm_s": 11.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 24,
+    "llm_s": 16.8,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00023#eb37cf31 START/,/<<<FILLER-BLOCK 00023#eb37cf31 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 47,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00023#eb37cf31 START/,/<<<FILLER-BLOCK 00023#eb37cf31 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 24,
+    "llm_s": 7.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 25,
+    "llm_s": 8.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00024#9c39a7ce START/,/<<<FILLER-BLOCK 00024#9c39a7ce END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 49,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00024#9c39a7ce START/,/<<<FILLER-BLOCK 00024#9c39a7ce END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 25,
+    "llm_s": 10.8,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 26,
+    "llm_s": 18.1,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00025#482f5b00 START/,/<<<FILLER-BLOCK 00025#482f5b00 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 51,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00025#482f5b00 START/,/<<<FILLER-BLOCK 00025#482f5b00 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 26,
+    "llm_s": 8.1,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 27,
+    "llm_s": 15.0,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00026#02dadb0f START/,/<<<FILLER-BLOCK 00026#02dadb0f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 53,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00026#02dadb0f START/,/<<<FILLER-BLOCK 00026#02dadb0f END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 27,
+    "llm_s": 15.1,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 28,
+    "llm_s": 13.3,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00027#dec6d9b0 START/,/<<<FILLER-BLOCK 00027#dec6d9b0 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 55,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00027#dec6d9b0 START/,/<<<FILLER-BLOCK 00027#dec6d9b0 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 28,
+    "llm_s": 5.0,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 29,
+    "llm_s": 22.0,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00028#e7868625 START/,/<<<FILLER-BLOCK 00028#e7868625 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 57,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00028#e7868625 START/,/<<<FILLER-BLOCK 00028#e7868625 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 29,
+    "llm_s": 26.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 30,
+    "llm_s": 18.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00029#d21b5ad7 START/,/<<<FILLER-BLOCK 00029#d21b5ad7 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 59,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00029#d21b5ad7 START/,/<<<FILLER-BLOCK 00029#d21b5ad7 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 30,
+    "llm_s": 9.9,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 31,
+    "budget_final_turn": true,
+    "tokens": 30952
+  },
+  {
+    "step": 31,
+    "llm_s": 13.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00030#94ed4763 START/,/<<<FILLER-BLOCK 00030#94ed4763 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "iter": 61,
+    "free_ctx_turn": true,
+    "cmd": "sed -i '/<<<FILLER-BLOCK 00030#94ed4763 START/,/<<<FILLER-BLOCK 00030#94ed4763 END>>>/d' /tmp/.live_ctx/LIVE_CTX_MAIN.tx"
+  },
+  {
+    "step": 31,
+    "llm_s": 53.1,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "grep -c \"n00030i00\\|n00030i01\\|n00030i02\\|n00030i03\" /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "step": 32,
+    "llm_s": 27.7,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "grep -E \"^\\[n000[0-9][0-9]i[0-3]#\" /tmp/.live_ctx/LIVE_CTX_MAIN.txt | wc -l"
+  },
+  {
+    "step": 33,
+    "llm_s": 162.1,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "head -50 /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "step": 34,
+    "budget_final_turn": true,
+    "tokens": 34190
+  },
+  {
+    "step": 34,
+    "llm_s": 10.8,
+    "bash_s": 1.4,
+    "return_code": 1,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "grep -E \"^\\[n000[0-9][0-9]i[0-3]#[a-f0-9]{8}\\]\" /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "step": 35,
+    "llm_s": 8.2,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "head -100 /tmp/.live_ctx/LIVE_CTX_MAIN.txt"
+  },
+  {
+    "step": 36,
+    "budget_final_turn": true,
+    "tokens": 35932
+  },
+  {
+    "step": 36,
+    "llm_s": 30.9,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find all needle lines (lines starting with [nNNNNNiNN#...)\nneedle_patt"
+  },
+  {
+    "step": 37,
+    "llm_s": 16.5,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": false,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find all needle lines\nneedle_pattern = r'^\\[n\\d{5}i\\d{2}#[a-f0-9]{8}\\]"
+  },
+  {
+    "step": 38,
+    "llm_s": 21.8,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find all needle lines\nneedle_pattern = r'^\\[n\\d{5}i\\d{2}#[a-f0-9]{8}\\]"
+  },
+  {
+    "step": 39,
+    "llm_s": 12.2,
+    "bash_s": 1.8,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 40,
+    "llm_s": 15.7,
+    "bash_s": 1.7,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 31\n# Pattern: <<<FILLER-BLOCK 00031#.."
+  },
+  {
+    "step": 41,
+    "llm_s": 6.4,
+    "bash_s": 1.8,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 42,
+    "llm_s": 17.2,
+    "bash_s": 1.7,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 32\n# Pattern: <<<FILLER-BLOCK 00032#.."
+  },
+  {
+    "step": 43,
+    "llm_s": 5.4,
+    "bash_s": 1.7,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 44,
+    "llm_s": 14.5,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 33\n# Pattern: <<<FILLER-BLOCK 00033#.."
+  },
+  {
+    "step": 45,
+    "llm_s": 23.1,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 46,
+    "llm_s": 23.8,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 34\n# Pattern: <<<FILLER-BLOCK 00034#.."
+  },
+  {
+    "step": 47,
+    "llm_s": 9.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 48,
+    "llm_s": 19.9,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 35\n# Pattern: <<<FILLER-BLOCK 00035#.."
+  },
+  {
+    "step": 49,
+    "llm_s": 9.2,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 50,
+    "llm_s": 29.4,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 36\n# Pattern: <<<FILLER-BLOCK 00036#.."
+  },
+  {
+    "step": 51,
+    "llm_s": 13.3,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 52,
+    "llm_s": 15.3,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 37\n# Pattern: <<<FILLER-BLOCK 00037#.."
+  },
+  {
+    "step": 53,
+    "llm_s": 10.1,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 54,
+    "llm_s": 24.7,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 38\n# Pattern: <<<FILLER-BLOCK 00038#.."
+  },
+  {
+    "step": 55,
+    "llm_s": 10.9,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 56,
+    "llm_s": 27.0,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 39\n# Pattern: <<<FILLER-BLOCK 00039#.."
+  },
+  {
+    "step": 57,
+    "llm_s": 12.7,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 58,
+    "llm_s": 29.5,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 40\n# Pattern: <<<FILLER-BLOCK 00040#.."
+  },
+  {
+    "step": 59,
+    "llm_s": 8.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 60,
+    "llm_s": 16.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 41\n# Pattern: <<<FILLER-BLOCK 00041#.."
+  },
+  {
+    "step": 61,
+    "llm_s": 17.8,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 62,
+    "llm_s": 14.6,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 42\n# Pattern: <<<FILLER-BLOCK 00042#.."
+  },
+  {
+    "step": 63,
+    "llm_s": 5.4,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 64,
+    "llm_s": 9.7,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 43\n# Pattern: <<<FILLER-BLOCK 00043#.."
+  },
+  {
+    "step": 65,
+    "llm_s": 6.8,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 66,
+    "llm_s": 51.0,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 44\n# Pattern: <<<FILLER-BLOCK 00044#.."
+  },
+  {
+    "step": 67,
+    "llm_s": 24.6,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 68,
+    "llm_s": 24.6,
+    "bash_s": 2.0,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 45\n# Pattern: <<<FILLER-BLOCK 00045#.."
+  },
+  {
+    "step": 69,
+    "llm_s": 22.0,
+    "bash_s": 2.1,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 70,
+    "llm_s": 26.3,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 46\n# Pattern: <<<FILLER-BLOCK 00046#.."
+  },
+  {
+    "step": 71,
+    "llm_s": 7.2,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 72,
+    "llm_s": 32.8,
+    "bash_s": 1.2,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 47\n# Pattern: <<<FILLER-BLOCK 00047#.."
+  },
+  {
+    "step": 73,
+    "llm_s": 8.3,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 74,
+    "llm_s": 26.3,
+    "bash_s": 1.7,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 48\n# Pattern: <<<FILLER-BLOCK 00048#.."
+  },
+  {
+    "step": 75,
+    "llm_s": 6.2,
+    "bash_s": 1.4,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 76,
+    "llm_s": 19.3,
+    "bash_s": 1.3,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 49\n# Pattern: <<<FILLER-BLOCK 00049#.."
+  },
+  {
+    "step": 77,
+    "llm_s": 7.9,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 78,
+    "budget_final_turn": true,
+    "tokens": 31440
+  },
+  {
+    "step": 78,
+    "llm_s": 19.3,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 50\n# Pattern: <<<FILLER-BLOCK 00050#.."
+  },
+  {
+    "step": 79,
+    "llm_s": 9.9,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 80,
+    "budget_final_turn": true,
+    "tokens": 32996
+  },
+  {
+    "step": 80,
+    "llm_s": 31.3,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 51\n# Pattern: <<<FILLER-BLOCK 00051#.."
+  },
+  {
+    "step": 81,
+    "llm_s": 19.6,
+    "bash_s": 1.6,
+    "return_code": 0,
+    "ctx_touched": false,
+    "ctx_synced": false,
+    "cmd": "echo READY_FOR_NEXT_OP"
+  },
+  {
+    "step": 82,
+    "budget_final_turn": true,
+    "tokens": 34350
+  },
+  {
+    "step": 82,
+    "llm_s": 35.8,
+    "bash_s": 1.5,
+    "return_code": 0,
+    "ctx_touched": true,
+    "ctx_synced": true,
+    "cmd": "python3 - <<'PY'\nimport re\n\n# Read the context\nwith open('/tmp/.live_ctx/LIVE_CTX_MAIN.txt', 'r') as f:\n    content = f.read()\n\n# Find the filler block for chunk 52\n# Pattern: <<<FILLER-BLOCK 00052#.."
+  },
+  {
+    "step": 83,
+    "budget_stop": true,
+    "tokens": 31468
+  }
+]

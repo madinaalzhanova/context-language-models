@@ -1,0 +1,40 @@
+Exception ignored in atexit callback: <bound method DaytonaClientManager._cleanup_sync of <harbor.environments.daytona.environment.DaytonaClientManager object at 0x000001BF05B21610>>
+Traceback (most recent call last):
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\harbor\environments\daytona\environment.py", line 222, in _cleanup_sync
+    asyncio.run(self._cleanup())
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\harbor\environments\daytona\environment.py", line 232, in _cleanup
+    await self._client.close()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\_async\daytona.py", line 460, in close
+    await self._event_dispatcher.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\internal\event_dispatcher.py", line 269, in disconnect
+    await self._disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\daytona\internal\event_dispatcher.py", line 292, in _disconnect
+    await sio.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\socketio\async_client.py", line 336, in disconnect
+    await self.eio.disconnect()
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\engineio\async_client.py", line 175, in disconnect
+    await self.read_loop_task
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\engineio\async_client.py", line 589, in _read_loop_websocket
+    p = await asyncio.wait_for(
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\PC_7389_GD26\Desktop\context-language-models\.venv\Lib\site-packages\aiohttp\client_ws.py", line 427, in receive
+    msg = await self._reader.read()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "aiohttp/_websocket/reader_py.py", line 140, in read
+    raise
+  File "aiohttp/_websocket/reader_py.py", line 137, in aiohttp._websocket.reader_c.WebSocketDataQueue.read
+    await self._waiter
+asyncio.exceptions.CancelledError: 
+EPISODE_RESULT {"run_dir": "C:\\Users\\PC_7389_GD26\\Desktop\\context-language-models\\clm\\clm_ui\\benchmarks\\clm-vs-base-needle-26ops-seed42\\trials\\base\\kv-store-R130-seed42__r1", "rewards": null, "usage": {"prompt_tokens": 183429, "completion_tokens": 3567, "n_llm_calls": 16, "n_commands": 16, "n_turns": 16, "peak_context_tokens": 12241, "wall_s": 99.4, "terminated_by": "timeout", "budget": 32768, "reserve": 2048}}

@@ -1,0 +1,28 @@
+{
+  "id": "needle-retention-K8-C62-seed49__r0",
+  "started_at": "2026-10-23T09:52:16",
+  "mode": "task",
+  "agent": "contextbench.harbor.agents.base:ContextBenchAgent",
+  "model": "openrouter/qwen/qwen3.5-9b",
+  "task": "needle-retention-K8-C62-seed49",
+  "task_dir": "C:\\Users\\PC_7389_GD26\\Desktop\\ContextBench\\cb_tasks\\needle-retention-K8-C62-seed49",
+  "sandbox": "daytona",
+  "settings": {
+    "mode": "task",
+    "model": "qwen/qwen3.5-9b",
+    "task": "needle-retention-K8-C62-seed49",
+    "skill": "base",
+    "agent": "baseline",
+    "steering": "",
+    "steering_text": "",
+    "context_budget_tokens": 32000,
+    "allow_edit_growth": "fit",
+    "max_tokens": null,
+    "temperature": 0.7
+  },
+  "steering": null,
+  "steering_file": null,
+  "agent_kwargs": {
+    "skill": "base"
+  }
+}

@@ -1,0 +1,131 @@
+{
+ "incumbent": "r1-1-sequential-counter-deletion",
+ "round": 1,
+ "no_improve": 0,
+ "skills": {
+  "base": {
+   "round": 0,
+   "parent": null,
+   "status": "retired",
+   "dev": {
+    "n": 1,
+    "n_valid": 1,
+    "acc": 0.3225806451612903,
+    "cost": 0.04875809,
+    "cost_metric": "usd",
+    "task_rewards": {
+     "needle-retention-K8-C62-seed48": 0.3225806451612903
+    }
+   }
+  },
+  "r1-1-sequential-counter-deletion": {
+   "round": 1,
+   "parent": "base",
+   "status": "incumbent",
+   "dev": {
+    "n": 1,
+    "n_valid": 1,
+    "acc": 0.967741935483871,
+    "cost": 0.10095866,
+    "cost_metric": "usd",
+    "task_rewards": {
+     "needle-retention-K8-C62-seed48": 0.967741935483871
+    }
+   },
+   "gate": "higher accuracy: acc 0.9677 vs 0.3226, diff +0.6452, SE 0.0000 (paired)"
+  },
+  "r1-2-budget-aware-sequential": {
+   "round": 1,
+   "parent": "base",
+   "status": "rejected",
+   "dev": {
+    "n": 1,
+    "n_valid": 1,
+    "acc": 0.25806451612903225,
+    "cost": 0.040978230000000004,
+    "cost_metric": "usd",
+    "task_rewards": {
+     "needle-retention-K8-C62-seed48": 0.25806451612903225
+    }
+   },
+   "gate": "lower accuracy: acc 0.2581 vs 0.3226, diff -0.0645, SE 0.0000 (paired)"
+  },
+  "r1-3-minimal-direct-deletion": {
+   "round": 1,
+   "parent": "base",
+   "status": "rejected",
+   "dev": {
+    "n": 1,
+    "n_valid": 1,
+    "acc": 0.0967741935483871,
+    "cost": 0.009244210000000001,
+    "cost_metric": "usd",
+    "task_rewards": {
+     "needle-retention-K8-C62-seed48": 0.0967741935483871
+    }
+   },
+   "gate": "lower accuracy: acc 0.0968 vs 0.3226, diff -0.2258, SE 0.0000 (paired)"
+  }
+ },
+ "history": [
+  {
+   "round": 1,
+   "incumbent_before": "base",
+   "incumbent_score": {
+    "n": 1,
+    "n_valid": 1,
+    "acc": 0.3225806451612903,
+    "cost": 0.04875809,
+    "cost_metric": "usd",
+    "task_rewards": {
+     "needle-retention-K8-C62-seed48": 0.3225806451612903
+    }
+   },
+   "candidates": [
+    {
+     "skill": "r1-1-sequential-counter-deletion",
+     "n": 1,
+     "n_valid": 1,
+     "acc": 0.967741935483871,
+     "cost": 0.10095866,
+     "cost_metric": "usd",
+     "task_rewards": {
+      "needle-retention-K8-C62-seed48": 0.967741935483871
+     },
+     "passed": true,
+     "reason": "higher accuracy: acc 0.9677 vs 0.3226, diff +0.6452, SE 0.0000 (paired)"
+    },
+    {
+     "skill": "r1-2-budget-aware-sequential",
+     "n": 1,
+     "n_valid": 1,
+     "acc": 0.25806451612903225,
+     "cost": 0.040978230000000004,
+     "cost_metric": "usd",
+     "task_rewards": {
+      "needle-retention-K8-C62-seed48": 0.25806451612903225
+     },
+     "passed": false,
+     "reason": "lower accuracy: acc 0.2581 vs 0.3226, diff -0.0645, SE 0.0000 (paired)"
+    },
+    {
+     "skill": "r1-3-minimal-direct-deletion",
+     "n": 1,
+     "n_valid": 1,
+     "acc": 0.0967741935483871,
+     "cost": 0.009244210000000001,
+     "cost_metric": "usd",
+     "task_rewards": {
+      "needle-retention-K8-C62-seed48": 0.0967741935483871
+     },
+     "passed": false,
+     "reason": "lower accuracy: acc 0.0968 vs 0.3226, diff -0.2258, SE 0.0000 (paired)"
+    }
+   ],
+   "rejected_at_validation": [],
+   "winner": "r1-1-sequential-counter-deletion",
+   "incumbent_after": "r1-1-sequential-counter-deletion"
+  }
+ ],
+ "dev_equals_train": false
+}

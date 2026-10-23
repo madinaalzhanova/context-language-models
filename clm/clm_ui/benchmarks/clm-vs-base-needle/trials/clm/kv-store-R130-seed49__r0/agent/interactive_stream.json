@@ -1,0 +1,100 @@
+{
+  "n_ops_delivered": 12,
+  "n_ops_total": 26,
+  "terminated_by": null,
+  "n_refusals": 0,
+  "n_explains": 0,
+  "stream": {
+    "count": 26,
+    "sha256": "2c582e9b1894c21269c6eed1622c593492d4a36d2efcb3b422191cdf63630808",
+    "verified": true,
+    "path": "/app/stream/chunks.jsonl",
+    "removed": true
+  },
+  "log": [
+    {
+      "kind": "op",
+      "index": 0,
+      "via": "start",
+      "trigger": "<start>",
+      "turn": 0
+    },
+    {
+      "kind": "op",
+      "index": 1,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...]  = t[:i] if (prev is None) else t[:t.index(prev) + len(prev)]\np.write_text(head + '\\n[batch 0000 offloaded]' + t[j:])\nPY",
+      "turn": 1
+    },
+    {
+      "kind": "op",
+      "index": 2,
+      "via": "ready",
+      "trigger": "python3 - <<'PY' && echo READY_FOR_NEXT_OP\nimport pathlib\np = pathlib.Path('/tmp/.live_ctx/LIVE_CTX_MAIN.txt')\nt = p.rea [...] dex(prev) + len(prev)] if (prev and prev in t[:i]) else t[:i]\np.write_text(head + '\\n[batch 0001 offloaded]' + t[j:])\nPY",
+      "turn": 2
+    },
+    {
+      "kind": "op",
+      "index": 3,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00114 =' /tmp/ctx_offload/kv-0001.txt | head -1 | sed 's/SET K00114 = //'); printf '<<<ANSWER key=K00114>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 5
+    },
+    {
+      "kind": "op",
+      "index": 4,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00128 =' /tmp/ctx_offload/kv-0001.txt | head -1 | sed 's/SET K00128 = //'); printf '<<<ANSWER key=K00128>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 7
+    },
+    {
+      "kind": "op",
+      "index": 5,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00060 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00060 = //'); printf '<<<ANSWER key=K00060>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 9
+    },
+    {
+      "kind": "op",
+      "index": 6,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00126 =' /tmp/ctx_offload/kv-0001.txt | head -1 | sed 's/SET K00126 = //'); printf '<<<ANSWER key=K00126>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 12
+    },
+    {
+      "kind": "op",
+      "index": 7,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00045 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00045 = //'); printf '<<<ANSWER key=K00045>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 14
+    },
+    {
+      "kind": "op",
+      "index": 8,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00096 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00096 = //'); printf '<<<ANSWER key=K00096>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 16
+    },
+    {
+      "kind": "op",
+      "index": 9,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00098 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00098 = //'); printf '<<<ANSWER key=K00098>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 18
+    },
+    {
+      "kind": "op",
+      "index": 10,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00005 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00005 = //'); printf '<<<ANSWER key=K00005>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 20
+    },
+    {
+      "kind": "op",
+      "index": 11,
+      "via": "ready",
+      "trigger": "val=$(grep -h 'SET K00055 =' /tmp/ctx_offload/kv-0000.txt | head -1 | sed 's/SET K00055 = //'); printf '<<<ANSWER key=K00055>>>\\n%s\\n<<<ANSWER END>>>\\n' \"$val\"; echo READY_FOR_NEXT_OP",
+      "turn": 22
+    }
+  ]
+}

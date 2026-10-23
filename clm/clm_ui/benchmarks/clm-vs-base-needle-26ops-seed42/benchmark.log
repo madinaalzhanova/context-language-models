@@ -1,0 +1,9 @@
+[09:36:58] benchmark clm-vs-base-needle-26ops-seed42: 2 arms x 1 tasks x 3 repeats = 6 runs, 6 to run, 2 at a time
+[09:36:58] start clm/kv-store-R130-seed42__r0
+[09:36:58] start base/kv-store-R130-seed42__r0
+[09:41:34] done  base/kv-store-R130-seed42__r0: score 1.0
+[09:41:34] start clm/kv-store-R130-seed42__r1
+[09:48:08] done  clm/kv-store-R130-seed42__r0: score 1.0
+[09:48:08] start base/kv-store-R130-seed42__r1
+[09:50:05] done  clm/kv-store-R130-seed42__r1: score None (not graded)
+[09:50:05] done  base/kv-store-R130-seed42__r1: score None (not graded)
